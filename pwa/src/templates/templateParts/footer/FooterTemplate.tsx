@@ -16,32 +16,10 @@ export const AuthenticatedFooterTemplate: React.FC = () => {
       <Container>
         <div className={styles.inner}>
           <List>
-            <ListSubheader className={styles.subHeader}>{t("The Hague")}</ListSubheader>
+            <ListSubheader className={styles.subHeader}>{t("Footer content")}</ListSubheader>
             <ListItem
               className={styles.listItem}
-              primaryText={t("Go to website")}
-              actionType="nav"
-              onClick={() => navigate("#")}
-            />
-          </List>
-
-          <List>
-            <ListSubheader className={styles.subHeader}>{t("Disclaimers")}</ListSubheader>
-            <ListItem
-              className={styles.listItem}
-              primaryText={t("Accessibility declaration")}
-              actionType="nav"
-              onClick={() => navigate("#")}
-            />
-            <ListItem
-              className={styles.listItem}
-              primaryText={t("Data Protection declaration")}
-              actionType="nav"
-              onClick={() => navigate("#")}
-            />
-            <ListItem
-              className={styles.listItem}
-              primaryText={t("Proclaimer")}
+              primaryText={t("Link")}
               actionType="nav"
               onClick={() => navigate("#")}
             />

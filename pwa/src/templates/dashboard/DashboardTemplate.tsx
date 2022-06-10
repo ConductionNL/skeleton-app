@@ -54,7 +54,7 @@ const Menu: React.FC = () => {
     location: { pathname },
   } = React.useContext(GatsbyContext);
 
-  const menuItems: MenuItem[] = [{ label: t("Overview"), href: "/", current: pathname === "/", icon: <GridIcon /> }];
+  const menuItems: MenuItem[] = [{ label: t("Home"), href: "/", current: pathname === "/", icon: <GridIcon /> }];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string): void => {
     e.preventDefault();
