@@ -26,8 +26,7 @@ export default class APIService {
 
   public get apiClient(): AxiosInstance {
     return axios.create({
-      //@ts-ignore
-      baseURL: window.GATSBY_API_URL,
+      baseURL: window.sessionStorage.getItem("GATSBY_API_URL") ?? "",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -38,8 +37,7 @@ export default class APIService {
 
   public get halApiClient(): AxiosInstance {
     return axios.create({
-      //@ts-ignore
-      baseURL: window.GATSBY_API_URL,
+      baseURL: window.sessionStorage.getItem("GATSBY_API_URL") ?? "",
       headers: {
         Accept: "application/json+hal",
         "Content-Type": "application/json",
@@ -50,8 +48,7 @@ export default class APIService {
 
   public get LoginClient(): AxiosInstance {
     return axios.create({
-      //@ts-ignore
-      baseURL: window.GATSBY_API_URL,
+      baseURL: window.sessionStorage.getItem("GATSBY_API_URL") ?? "",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -61,8 +58,7 @@ export default class APIService {
 
   public get BaseClient(): AxiosInstance {
     return axios.create({
-      //@ts-ignore
-      baseURL: window.GATSBY_BASE_URL,
+      baseURL: window.sessionStorage.getItem("GATSBY_BASE_URL") ?? "",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

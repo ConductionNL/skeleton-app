@@ -13,12 +13,8 @@ export const LandingTemplate: React.FC = () => {
     <Container>
       <div className={styles.container}>
         <div>
-          <Heading3>{t("Log in to MijnDenHaag")}</Heading3>
-          <Paragraph>
-            {t(
-              "In the personal online environment MijnDenHaag you can easily, quickly and safely arrange matters with the municipality. For example, residents can report a move or buy extra parking credit via DigiD. Companies can easily arrange business online via eHerkenning.",
-            )}
-          </Paragraph>
+          <Heading3>{t("Login")}</Heading3>
+          <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</Paragraph>
         </div>
         <div className={styles.loginCards}>
           <HorizontalImageCard
