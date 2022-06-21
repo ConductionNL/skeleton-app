@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as styles from "./Layout.module.css";
-import { UnauthenticatedFooterTemplate } from "../../../templates/templateParts/footer/FooterTemplate";
-import { UnauthenticatedHeaderTemplate } from "../../../templates/templateParts/header/HeaderTemplate";
+import { UnauthenticatedFooterTemplate } from "../templates/templateParts/footer/FooterTemplate";
+import { UnauthenticatedHeaderTemplate } from "../templates/templateParts/header/HeaderTemplate";
 
 interface UnauthenticatedLayoutProps {
   children: React.ReactNode;
