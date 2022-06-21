@@ -1,14 +1,12 @@
 import * as React from "react";
 import * as styles from "./Layout.module.css";
-import "./../translations/i18n";
+import "../translations/i18n";
 import APIContext, { APIProvider } from "../apiService/apiContext";
 import APIService from "../apiService/apiService";
 import { GatsbyProvider, IGatsbyContext } from "../context/gatsby";
 import { StylesProvider } from "@gemeente-denhaag/components-react";
-import { isLoggedIn } from "../services/auth";
 import { Head } from "./Head";
-import { AuthenticatedLayout } from "./AuthenticatedLayout";
-import { UnauthenticatedLayout } from "./UnauthenticatedLayout";
+import { Content } from "../Content";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -36,17 +34,19 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext, location }) => {
     <>
       <Head />
 
-      <div className={styles.container}>
-        <GatsbyProvider value={gatsbyContext}>
-          <APIProvider value={API}>
-            <StylesProvider>
-              {isLoggedIn() ? <AuthenticatedLayout {...{ children }} /> : <UnauthenticatedLayout {...{ children }} />}
-            </StylesProvider>
-          </APIProvider>
-        </GatsbyProvider>
-      </div>
+      <GatsbyProvider value={gatsbyContext}>
+        <APIProvider value={API}>
+          <StylesProvider>
+            <div className={styles.container}>
+              <Content />
+            </div>
+          </StylesProvider>
+        </APIProvider>
+      </GatsbyProvider>
     </>
   );
 };
 
 export default Layout;
+
+// {isLoggedIn() ? <AuthenticatedLayout {...{ children }} /> : <UnauthenticatedLayout {...{ children }} />} --> old PIP layout
