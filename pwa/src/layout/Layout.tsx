@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext, location }) => {
         <APIProvider value={API}>
           <StylesProvider>
             <div className={styles.container}>
-              <Content />
+              <Content {...{ children }} />
             </div>
           </StylesProvider>
         </APIProvider>

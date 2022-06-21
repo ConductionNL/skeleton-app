@@ -1,5 +1,9 @@
 import * as React from "react";
 
-export const Content: React.FC = () => {
+interface ContentProps {
+  children: React.ReactNode;
+}
+
+export const Content: React.FC<ContentProps> = () => {
   return <>Initialisation guide</>;
 };
