@@ -1,0 +1,64 @@
+.content {
+  margin-top: 100px;
+}
+
+.content > *:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.textContainer {
+  max-width: 1024px;
+}
+
+.templatesGrid {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+}
+
+.templatesGrid > *:not(:last-child) {
+  margin-right: 48px;
+}
+
+.templateCard {
+  background-color: #f5f5f5;
+  padding: 24px;
+  border-radius: 3px;
+  transition: background-color 200ms;
+  user-select: none;
+}
+
+.templateCard:hover {
+  cursor: pointer;
+}
+
+.templateCard.active {
+  background-color: var(--nlportal-footer-background-color);
+}
+
+.templateCard.active > * {
+  color: white;
+}
+
+.tabPanel {
+  max-width: 800px;
+}
+
+.tabPanel > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.tabHeading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list > *:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.code {
+  margin-block: 12px;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 25px;
+}
