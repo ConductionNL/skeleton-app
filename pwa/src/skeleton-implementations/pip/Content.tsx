@@ -1,5 +1,5 @@
 import * as React from "react";
-import { isLoggedIn } from "../../services/auth";
+import { isLoggedIn } from "./services/auth";
 import { AuthenticatedLayout } from "./layout/AuthenticatedLayout";
 import { UnauthenticatedLayout } from "./layout/UnauthenticatedLayout";
 

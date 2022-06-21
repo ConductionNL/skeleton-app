@@ -2,11 +2,11 @@ import * as React from "react";
 import * as styles from "./DashboardTemplate.module.css";
 import { GridIcon } from "@gemeente-denhaag/icons";
 import { Sidenav, SidenavItem, SidenavLink, SidenavList } from "@gemeente-denhaag/sidenav";
-import { GatsbyContext } from "../../../../context/gatsby";
+import { GatsbyContext } from "../../context/gatsby";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { Container, Breadcrumbs, PrivateRoute } from "@conduction/components";
-import { isLoggedIn } from "../../../../services/auth";
+import { isLoggedIn } from "../../services/auth";
 
 export const DashboardTemplate: React.FC = ({ children }) => {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { isLoggedIn } from "../../../services/auth";
+import { isLoggedIn } from "../services/auth";
 import { DashboardTemplate } from "../templates/dashboard/DashboardTemplate";
-import { HomeTemplate } from "../../../templates/templateParts/home/HomeTemplate";
+import { HomeTemplate } from "../templates/templateParts/home/HomeTemplate";
 import { LandingTemplate } from "../templates/landing/LandingTemplate";
 
 const IndexPage: React.FC = () => {

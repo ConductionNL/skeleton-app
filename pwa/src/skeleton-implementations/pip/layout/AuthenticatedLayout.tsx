@@ -3,7 +3,7 @@ import * as styles from "./Layout.module.css";
 import { AuthenticatedFooterTemplate } from "../templates/templateParts/footer/FooterTemplate";
 import { AuthenticatedHeaderTemplate } from "../templates/templateParts/header/HeaderTemplate";
 import { PrivateRoute } from "@conduction/components";
-import { isLoggedIn } from "../../../services/auth";
+import { isLoggedIn } from "../services/auth";
 
 interface AuthenticatedLayoutProps {
   children: React.ReactNode;
