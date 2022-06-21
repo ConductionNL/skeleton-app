@@ -48,5 +48,3 @@ const Layout: React.FC<LayoutProps> = ({ children, pageContext, location }) => {
 };
 
 export default Layout;
-
-// {isLoggedIn() ? <AuthenticatedLayout {...{ children }} /> : <UnauthenticatedLayout {...{ children }} />} --> old PIP layout
