@@ -46,8 +46,19 @@ export const TestTemplate: React.FC = () => {
 };
 ```
 
-Now navigate to localhost:8000/test. 
-You should see this: 
+Now we only have to add a sidenav item for this page to navigate to it. 
+This can be done in the DashboardTemplate. There is a const menuItems, here you can add a new item.
+
+The menuItems const should look like this
+```TypeScript
+const menuItems: MenuItem[] = [
+  { label: t("Home"), href: "/", current: pathname === "/", icon: <GridIcon /> },
+  { label: t("Test page"), href: "/testFolder", current: pathname === "/testFolder", icon: <GridIcon /> }
+];
+```
+
+Now navigate to localhost:8000 then click on the sideNav item 'Test page'
+You should see this:
 
 ![Example](./images/testPage.png)
 
@@ -108,5 +119,6 @@ crumbLabelUpdates: [
 Restart the development server. The breadcrumbs should look like this. 
 
 ![Example](./images/breadcrumbs.png)
+
 
 ---
