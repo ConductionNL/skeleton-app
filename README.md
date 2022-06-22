@@ -35,6 +35,10 @@ $ docker-compose up (after first time)
 
 After succesfully setting up your dev environment, navigate to [http://localhost:8000/](http://localhost:8000/) to view the app in your browser.
 
+## Developing on the Skeleton Application
+
+This is a in-depth guide [here](./doc/developing_skeleton.md).
+
 ## Technical Documentation @TODO IN PROGRESS
 
 Full technical documentation is provided on [read the docs](https://skeleton-app.readthedocs.io/en/latest//) and is based on [MKDocs](https://www.mkdocs.org/). A more product owner focused (and less technical) product page is hosted at [link to be added]().
