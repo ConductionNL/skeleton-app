@@ -2,8 +2,7 @@
 
 This page consists of the following parts:
 
-- Adding a page
-- Adding a detail page
+- Adding components
 
 ## _Adding a page_
 
@@ -61,7 +60,7 @@ const menuItems: MenuItem[] = [
 Now navigate to localhost:8000 then click on the sideNav item 'Test page'
 You should see this:
 
-![Example](./images/test.png)
+![Example](./images/testPage.png)
 
 ---
 
@@ -126,6 +125,6 @@ Restart the development server. The breadcrumbs should look like this.
 ## Adding components to your page
 
 Now that you've added the two pages, we can add components to those pages.
-[here](./doc/components.md).
+[here](./doc/developing_skeleton.md).
 
 ---

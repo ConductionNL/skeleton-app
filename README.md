@@ -37,7 +37,7 @@ After succesfully setting up your dev environment, navigate to [http://localhost
 
 ## Developing on the Skeleton Application
 
-This is a in-depth guide [here](./doc/developing_skeleton.md).
+This is an in-depth guide [here](./doc/developing_skeleton.md).
 
 ## Technical Documentation @TODO IN PROGRESS
 
