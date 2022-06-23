@@ -244,7 +244,7 @@ const templateDetails: any = {
               Robocopy /S pwa/src/skeleton-implementations/pip/templates pwa/src/templates ; <br />
               Robocopy /S pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/templateParts ;{" "}
               <br />
-              rmdir pwa/src/skeleton-implementations && <br />
+              rmdir pwa/src/skeleton-implementations ; <br />
               del pwa/src/Content.module.css
             </>
           }
