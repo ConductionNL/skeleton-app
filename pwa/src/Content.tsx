@@ -7,9 +7,7 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  LeadParagraph,
   Link,
-  Paragraph,
   Tab,
   TabContext,
   TabPanel,
@@ -24,10 +22,10 @@ interface ContentProps {
 export const Content: React.FC<ContentProps> = () => {
   const [selectedTemplate, setSelectedTemplate] = React.useState<"pip" | "website" | "dashboard">("pip");
   const [currentTab, setCurrentTab] = React.useState<number>(0);
-  const [content, setContent] = React.useState<any>(detailContent["pip"]);
+  const [content, setContent] = React.useState<any>(templateDetails["pip"]);
 
   React.useEffect(() => {
-    setContent(detailContent[selectedTemplate]);
+    setContent(templateDetails[selectedTemplate]);
   }, [selectedTemplate]);
 
   return (
@@ -46,10 +44,13 @@ export const Content: React.FC<ContentProps> = () => {
         <div className={styles.textContainer}>
           <Heading2>Step one: pick your template</Heading2>
 
-          <LeadParagraph>
-            Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed
-            consectetur. Donec ullamcorper nulla non metus auctor fringilla.
-          </LeadParagraph>
+          <span>
+            The Skeleton Application comes with three out-of-the-box templates: PIP, Website and Dashboard. Each with
+            its own functionalities, such as: authentication, shielded pages and components, layouts as headers and
+            footers and much more. Every template has fully built-in NL-Design support.
+          </span>
+
+          <span>Select one of the templates below for more information.</span>
         </div>
 
         <div className={styles.templatesGrid}>
@@ -59,7 +60,9 @@ export const Content: React.FC<ContentProps> = () => {
           >
             <Heading3>PIP</Heading3>
 
-            <Paragraph>Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor.</Paragraph>
+            <span>
+              Out-of-the-box authentication, gateway support, NL Design support, multiple navigations and much more.
+            </span>
           </div>
 
           <div
@@ -68,16 +71,21 @@ export const Content: React.FC<ContentProps> = () => {
           >
             <Heading3>Website</Heading3>
 
-            <Paragraph>Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor.</Paragraph>
+            <span>
+              A simple website skeleton, including headers, footers, routing and more. Does not contain authentication.
+            </span>
           </div>
 
           <div
-            className={clsx(styles.templateCard, selectedTemplate === "dashboard" && styles.active)}
-            onClick={() => setSelectedTemplate("dashboard")}
+            className={clsx(
+              styles.templateCard,
+              styles.templateCardDashboard,
+              selectedTemplate === "dashboard" && styles.active,
+            )}
           >
             <Heading3>Dashboard</Heading3>
 
-            <Paragraph>Coming soon.</Paragraph>
+            <span>Coming soon.</span>
           </div>
         </div>
 
@@ -108,31 +116,37 @@ export const Content: React.FC<ContentProps> = () => {
               )}
             </div>
 
-            {content.introduction.content}
+            <span>{content.introduction.content}</span>
 
-            <Link
-              target="_blank"
-              href="https://github.com/ConductionNL/skeleton-app/tree/development"
-              icon={<ArrowRightIcon />}
-              iconAlign="start"
-            >
-              Skeleton Application documentation
-            </Link>
+            <span>
+              For more information, you can{" "}
+              <Link
+                target="_blank"
+                href="https://github.com/ConductionNL/skeleton-app/tree/development"
+                icon={<ArrowRightIcon />}
+                iconAlign="start"
+              >
+                Check out the Skeleton Application documentation
+              </Link>
+            </span>
           </TabPanel>
 
           <TabPanel className={styles.tabPanel} value="1">
             <Heading3>{content.installation.title}</Heading3>
 
-            {content.installation.content}
+            <span>{content.installation.content}</span>
 
-            <Link
-              target="_blank"
-              href="https://github.com/ConductionNL/skeleton-app/tree/development"
-              icon={<ArrowRightIcon />}
-              iconAlign="start"
-            >
-              Skeleton Application documentation
-            </Link>
+            <span>
+              For more information, you can{" "}
+              <Link
+                target="_blank"
+                href="https://github.com/ConductionNL/skeleton-app/tree/development"
+                icon={<ArrowRightIcon />}
+                iconAlign="start"
+              >
+                Check out the Skeleton Application documentation
+              </Link>
+            </span>
           </TabPanel>
         </TabContext>
       </div>
@@ -140,7 +154,60 @@ export const Content: React.FC<ContentProps> = () => {
   );
 };
 
-const detailContent: any = {
+/**
+ * Component: Installation Steps
+ */
+interface InstallationStepsProps {
+  commandMacOS: JSX.Element;
+  commandWindows: JSX.Element;
+}
+
+const InstallationSteps: React.FC<InstallationStepsProps> = ({ commandMacOS, commandWindows }) => {
+  const [currentTab, setCurrentTab] = React.useState<number>(0);
+
+  return (
+    <div>
+      <ol className={styles.list}>
+        <li>
+          <span>Navigate to the source folder of this project</span>
+        </li>
+
+        <li>
+          <span>Run the following command</span>
+          <TabContext value={currentTab.toString()}>
+            <Tabs
+              value={currentTab}
+              onChange={(_, newValue: number) => {
+                setCurrentTab(newValue);
+              }}
+              className={styles.installationTabs}
+            >
+              <Tab label="MacOS (using rsync)" value={0} />
+              <Tab label="Windows (using robocopy)" value={1} />
+            </Tabs>
+
+            <TabPanel className={styles.tabPanel} value="0">
+              <span className={styles.code}>$ {commandMacOS}</span>
+            </TabPanel>
+
+            <TabPanel className={styles.tabPanel} value="1">
+              <span className={styles.code}>$ {commandWindows}</span>
+            </TabPanel>
+          </TabContext>
+        </li>
+
+        <li>
+          <span>Restart the development server!</span>
+        </li>
+      </ol>
+    </div>
+  );
+};
+
+/**
+ * Data: Template details
+ */
+const templateDetails: any = {
   ["pip"]: {
     introduction: {
       title: "PIP Template",
@@ -149,49 +216,37 @@ const detailContent: any = {
         href: "https://mijn.commonground.nu",
       },
       content: (
-        <>
-          <LeadParagraph>
-            Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur
-            ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur.
-          </LeadParagraph>
-
-          <LeadParagraph>
-            Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur
-            ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur.
-          </LeadParagraph>
-        </>
+        <span>
+          Out-of-the-box authentication, gateway support, NL Design support, multiple navigations and much more.
+        </span>
       ),
     },
     installation: {
       title: "Getting started",
       content: (
-        <>
-          <ol className={styles.list}>
-            <li>
-              <Paragraph>Stop your development server</Paragraph>
-            </li>
-            <li>
-              <Paragraph>
-                Navigate to the source folder of this repository (note: this is the starting folder and NOT the 'src'
-                folder of this project)
-              </Paragraph>
-            </li>
-            <li>
-              <Paragraph>Run the following command</Paragraph>
-              <Paragraph className={styles.code}>
-                cp pwa/src/skeleton-implementations/pip/Content.tsx pwa/src/ && <br />
-                rsync -r pwa/src/skeleton-implementations/pip/layout pwa/src/ && <br />
-                rsync -r pwa/src/skeleton-implementations/pip/pages pwa/src/ && <br />
-                rsync -r pwa/src/skeleton-implementations/pip/templates pwa/src/ && <br />
-                rsync -r pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/ && <br />
-                rm -rf pwa/src/skeleton-implementations
-              </Paragraph>
-            </li>
-            <li>
-              <Paragraph>Start your development server</Paragraph>
-            </li>
-          </ol>
-        </>
+        <InstallationSteps
+          commandMacOS={
+            <>
+              cp pwa/src/skeleton-implementations/pip/Content.tsx pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/pip/layout pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/pip/pages pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/pip/templates pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/ && <br />
+              rm -rf pwa/src/skeleton-implementations
+            </>
+          }
+          commandWindows={
+            <>
+              cp pwa/src/skeleton-implementations/pip/Content.tsx pwa/src/ ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/pip/layout pwa/src/layout ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/pip/pages pwa/src/pages ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/pip/templates pwa/src/templates ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/templateParts ;{" "}
+              <br />
+              rmdir pwa/src/skeleton-implementations
+            </>
+          }
+        />
       ),
     },
   },
@@ -202,20 +257,11 @@ const detailContent: any = {
         label: "Live Website implementation",
         href: "https://opencatalogi.nl",
       },
-      content: <LeadParagraph>Coming soon</LeadParagraph>,
+      content: <span>Documentation coming soon</span>,
     },
     installation: {
       title: "Getting started",
-      content: "Coming soon",
-    },
-  },
-  ["dashboard"]: {
-    introduction: {
-      title: "Coming soon",
-    },
-    installation: {
-      title: "Getting started",
-      content: "Coming soon",
+      content: "Installation information coming soon",
     },
   },
 };
