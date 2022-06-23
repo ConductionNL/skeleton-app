@@ -20,7 +20,7 @@ export const DashboardTemplate: React.FC = ({ children }) => {
   const translatedCrumbs = crumbs.map((crumb: any) => ({ ...crumb, crumbLabel: t(crumb.crumbLabel) }));
 
   return (
-    <PrivateRoute isLoggedIn={isLoggedIn()}>
+    <PrivateRoute authenticated={isLoggedIn()}>
       <Container>
         <div className={styles.container}>
           <div className={styles.menu}>
