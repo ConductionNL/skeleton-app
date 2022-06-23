@@ -232,7 +232,8 @@ const templateDetails: any = {
               rsync -r pwa/src/skeleton-implementations/pip/pages pwa/src/ && <br />
               rsync -r pwa/src/skeleton-implementations/pip/templates pwa/src/ && <br />
               rsync -r pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/ && <br />
-              rm -rf pwa/src/skeleton-implementations
+              rm -rf pwa/src/skeleton-implementations && <br />
+              rm pwa/src/Content.module.css
             </>
           }
           commandWindows={
@@ -243,7 +244,8 @@ const templateDetails: any = {
               Robocopy /S pwa/src/skeleton-implementations/pip/templates pwa/src/templates ; <br />
               Robocopy /S pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/templateParts ;{" "}
               <br />
-              rmdir pwa/src/skeleton-implementations
+              rmdir pwa/src/skeleton-implementations && <br />
+              del pwa/src/Content.module.css
             </>
           }
         />
