@@ -1,5 +1,6 @@
-site_name: MkLorum
-site_url: https://example.com/
+site_name: Skeleton app
+site_url: https://conductionnl.github.io/skeleton-app
+docs_dir: docs
 nav:
-    - Home: docs/index.md
-    - Components: docs/components.md
+    - Home: index.md
+    - Components: components.md
