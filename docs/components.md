@@ -21,10 +21,10 @@ First add the table to `/src/templates/test/TestTemplate.tsx`.
 ```Javascript
 //  /src/templates/test/TestTemplate.tsx
 import * as React from "react";
-import { Heading3 } from "@gemeente-denhaag/components-react";
+import { Button, Heading3 } from "@gemeente-denhaag/components-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@gemeente-denhaag/table";
 
-export const TestTemplate: React.FC = () => {
+export const HomeTemplate: React.FC = () => {
   return (
     <div>
       <div> 
