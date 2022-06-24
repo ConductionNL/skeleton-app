@@ -10,17 +10,18 @@ This page consists of the following parts:
 A new page can be added with the following steps:
 
 - Create a new file for your page under /src/pages. (The name of the file wil be the slug and will be used as a breadcrumb)
-- When creating a page for the PIP-template you want to add the 'DashboardTemplate' in your page
+- When creating a page for the PIP-template you want to add the `<DashboardTemplate></DashboardTemplate>` in your page
   - The Dashboard template is an authenticated template. This means that you can only access it when you are logged in
 - Then you can add a template to the page (this is not necessary but makes the code base clean and organized)
   - Create a new folder under /src/templates
   - Create a tsx file
   - Create a module.css file (if necessary)
 
-As an example I will create a file 'test' with a template called 'testTemplate'.
+As an example I will create a file `test.tsx` with a template called `TestTemplate.tsx`.
 The code of the 'test' file looks like this:
 
-```TypeScript
+```Javascript
+// /src/pages/test.tsx
 import * as React from "react";
 import { DashboardTemplate } from "../templates/dashboard/DashboardTemplate";
 import { TestTemplate }from "../templates/testFolder/TestTemplate";
@@ -37,7 +38,8 @@ export default TestPage;
 ```
 
 The code of the 'TestTemplate' file looks like this:
-```TypeScript
+```Javascript
+// /src/templates/test/TestTemplate.tsx
 import * as React from "react";
 
 export const TestTemplate: React.FC = () => {
@@ -51,7 +53,8 @@ Now we only have to add a sidenav item for this page to navigate to it.
 This can be done in the DashboardTemplate. There is a const menuItems, here you can add a new item.
 
 The menuItems const should look like this
-```TypeScript
+```Javascript
+// /src/templates/dashboard/DashboardTemplate.tsx
 const menuItems: MenuItem[] = [
   { label: t("Home"), href: "/", current: pathname === "/", icon: <GridIcon /> },
   { label: t("Test page"), href: "/testFolder", current: pathname === "/testFolder", icon: <GridIcon /> }
@@ -74,6 +77,7 @@ A new detail page can be added with the following steps:
 - Create an index file to the folder. This wil import and export the main page
   - The code should look like this:
 ```Typescript
+// /src/pages/test/index.tsx
 import TestPage from "./test";
 
 export default TestPage;
@@ -105,6 +109,7 @@ For the pathName we can add the folder name as it is. crumbLabel will be the out
 Here I am editing the breadcrumbs of the pages we just created.
 
 ```Typescript
+// /pwa/gatsby-config.js
 crumbLabelUpdates: [
   {
     pathname: "/testFolder",
@@ -126,6 +131,6 @@ Restart the development server. The breadcrumbs should look like this.
 ## Adding components to your page
 
 Now that you've added the two pages, we can add components to those pages.
-[here](./doc/components.md).
+[click here to see the guide](./components.md).
 
 ---
