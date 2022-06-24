@@ -2,7 +2,7 @@ site_name: Skeleton app
 site_url: https://conductionnl.github.io/skeleton-app
 docs_dir: docs
 nav:
-    - Home: index.md
+    - Home: developing_skeleton.md
     - Components: components.md
 
 theme:

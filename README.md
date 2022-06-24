@@ -25,7 +25,7 @@ $ npm run develop
 ```
 
 
-### Docker @TODO IN PROGRESS
+### Docker
 You will need to have docker installed. This will also run Conductions gateway on port :80 and the app itself on :8000 so make sure nothing runs on those.
 ```cli
 $ docker-compose pull
@@ -39,8 +39,8 @@ After succesfully setting up your dev environment, navigate to [http://localhost
 
 This is an in-depth guide [here](./doc/developing_skeleton.md).
 
-## Technical Documentation @TODO IN PROGRESS
+## Technical Documentation
 
-Full technical documentation is provided on [read the docs](https://skeleton-app.readthedocs.io/en/latest//) and is based on [MKDocs](https://www.mkdocs.org/). A more product owner focused (and less technical) product page is hosted at [link to be added]().
+Full technical documentation is provided on [read the docs](https://conductionnl.github.io/skeleton-app/) and is based on [MKDocs](https://www.mkdocs.org/). A more product owner focused (and less technical) product page is hosted at [link to be added](https://github.com/ConductionNL/skeleton-app).
 
-If you want to run the technical documentation locall $y, you can do so by using MKDocs build server and the serve command. Just go to the local repository and execute the following command for the documenation to be available on [port 8000](localhost://8000). Make sure to [install MKDocs](https://www.mkdocs.org/user-guide/installation/) first.
+If you want to run the technical documentation on localhost, you can do so by using MKDocs build server and the serve command. Just go to the local repository and execute the following command for the documentation to be available on [port 8000](http://localhost:8000). Make sure to [install MKDocs](https://www.mkdocs.org/user-guide/installation/) first.
