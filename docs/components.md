@@ -244,4 +244,4 @@ const onSubmit = (data: any) => {
 ```
 
 // form created -> show result 
-// ass queryclient to the table -> show the result
+// add queryclient to the table -> show the result
