@@ -14,9 +14,11 @@ These steps require you to:
 
 ---
 
-## _Introduction_
+## Introduction
 
 Here an introduction
+
+[Spinning up your local environment](../README.md/.#Spinning up your local environment)
 
 ---
 
