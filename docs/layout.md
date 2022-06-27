@@ -3,19 +3,20 @@
 This page consists of the following parts:
 
 - Layout skeleton-app
-  - Pages
-    - .tsx file
-    - .ts file
-    - .module.css file
-  - Templates
-    - Authenticated template
-    - Unauthenticated template
-  - Hooks
-  - ApiService
-    - Resources
-    - Services
-    - apiContext.ts
-    - apiService.ts
+  - `cd pwa/src`
+    - Pages
+      - .tsx file
+      - .ts file
+      - .module.css file
+    - Templates
+      - Authenticated template
+      - Unauthenticated template
+    - Hooks
+    - ApiService
+      - Resources
+      - Services
+      - apiContext.ts
+      - apiService.ts
   
 ---
 
