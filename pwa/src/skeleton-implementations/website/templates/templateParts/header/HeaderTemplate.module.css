@@ -1,0 +1,28 @@
+.header {
+  background-color: var(--conduction-color-secondary);
+}
+
+.top {
+  background-color: var(--conduction-color-primary);
+}
+
+.headingContainer {
+  padding-block-start: var(--nlportal-space-inline-4xl);
+  padding-block-end: var(--nlportal-space-inline-4xl);
+}
+
+.title {
+  padding-block-end: var(--nlportal-space-block-md);
+  color: var(--denhaag-color-white) !important;
+}
+
+.subTitle {
+  font-weight: 100;
+  color: var(--denhaag-color-white);
+}
+
+.secondaryNavContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
