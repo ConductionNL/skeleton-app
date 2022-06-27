@@ -6,5 +6,6 @@ nav:
     - The layout: layout.md
     - Adding pages: pages.md
     - Components: components.md
+    - ApiService: apiService.md
 theme:
     name: readthedocs
