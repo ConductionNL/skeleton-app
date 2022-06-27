@@ -6,8 +6,8 @@ This page consists of the following parts:
 - Adding a detail page
 
 These steps require you to: 
-- Spin up the [front-end of the application](./docs/frontend.md).
-- Spin up the [backend](./docs/backend.md)
+- Spin up the [front-end of the application](./frontend.md).
+- Spin up the [backend](./backend.md)
 
 ---
 
@@ -19,7 +19,7 @@ Or they provide free navigation guides for a topic and include a headline, a sho
 
 A new page can be added with the following steps:
 
-- Create a new .tsx file for your page at `cd pwa/src/pages/{folder-name}.tsx`:  @TODO refer to documentation about tsx files
+- Create a new [.tsx](./layout.md/.#_.tsx file_) file for your page at `cd pwa/src/pages/{folder-name}.tsx`
 
 > **_NOTE_**
 > The breadcrumbs are automatically generated, but in most cases this leads to user unfriendly names. Fortunately we can change the names through the gatsby configuration file.
@@ -29,14 +29,14 @@ A new page can be added with the following steps:
 
 - Then you can add a template to the page (this is not necessary but makes the code base clean and organized)
   - Create a new folder under `cd pwa/src/templates/{folder-name}`
-    - Create a .tsx file `cd pwa/src/templates/{folder-name}/{File-name}.tsx` @TODO refer to documentation about tsx files
-    - Create a .module.css file `cd pwa/src/templates/{folder-name}/{File-name}.module.css` (if necessary) @TODO refer to documentation about module.css files
+    - Create a [.tsx](./layout.md/.#_.tsx file_) file `cd pwa/src/templates/{folder-name}/{File-name}.tsx`
+    - Create a [.module.css](./layout.md/.#_.tsx file_) file `cd pwa/src/templates/{folder-name}/{File-name}.module.css` (if necessary)
 - When adding content to the page we first need to know which template we are going to use
-  - opsomming templates
-  - See this doc @TODO need to write documentation about the different template types and refer to that
+  - See this doc about [the different template types](./index.md/.#_Different template types_)
+  - What do you need to know about this template 
 - Then we need to know what kind of page we want to add
+  - See this doc about [Templates](./layout.md/.#_Templates_)
   - opsomming soorten pages
-  - See this doc @TODO need to write documentation about the different template types and refer to that
 
 As an example we will create a folder and file called: 
 ```bash

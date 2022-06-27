@@ -9,8 +9,8 @@ This page consists of the following parts:
   - Website-template
 
 These steps require you to: 
-- Spin up the [front-end of the application](./docs/frontend.md).
-- Spin up the [backend](./docs/backend.md)
+- Spin up the [front-end of the application](./frontend.md).
+- Spin up the [backend](./backend.md)
 
 ---
 

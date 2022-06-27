@@ -2,20 +2,38 @@
 
 This page consists of the following parts:
 
+- Adding an API
+  - Adding an exiting API
+  - Adding an API to the gateway 
 - API service
   
 ---
 
-## _Adding an API to the ApiService_
+## _Adding an API_
 
 To be able to send the form and to show the data in the table we need an api that can handle this.
 In [this](https://github.com/CommonGateway/PetStoreAPI#running-the-api-with-the-skeleton-app) guide you can add an exiting API to the skeleton-app.
 This guide also explains how to create an API with [Stoplight](https://stoplight.io/)
 
-If we added the API we can create a `resource` in `/src/apiService/resources`
-- add a file called `example.tsx` with the following code
+### _Adding an exiting API_
+text 
+
+### _Adding an API to the gateway_
+text
+
+
+## _Adding an API to the ApiService_
+
+The Skeleton Application does API handling via the apiService in the application. The service is built on axios to fetch API data. Using this service saves many lines of code by calling upon methods in the component classes.
+
+You can find the ApiService at `cd pwa/src/apiService/apiService.ts` folder and structured with resources and services. Specific services such as logging are placed in services, and other calls are stored in resources.
+
+If we added the API we can create a `resource` in `cd pwa/src/apiService/resources` or `service` in `cd pwa/src/apiService/services`
+We will create a resource file called
+- add a file called .tsx file `cd pwa/src/resource/example.tsx` with the following code
   - we want to add a getAll and create function.
 
+The example shown is the Notifications resource:
 ```Typescript
 // /src/apiService/resource/example.ts
 import { Send } from "../apiService";

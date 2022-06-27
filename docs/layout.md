@@ -42,6 +42,7 @@ This page consists of the following parts:
 - add an example with context about what you have to, how you do it and why you have to do it
 
 ### _Hooks_
+- tell about hooks and the use of it
 
 ### _ApiService_
 #### _Resources_
