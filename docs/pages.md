@@ -20,6 +20,7 @@ Or they provide free navigation guides for a topic and include a headline, a sho
 A new page can be added with the following steps:
 
 - Create a new .tsx file for your page at `cd pwa/src/pages/{folder-name}.tsx`:  @TODO refer to documentation about tsx files
+
 > **_NOTE_**
 > The breadcrumbs are automatically generated, but in most cases this leads to user unfriendly names. Fortunately we can change the names through the gatsby configuration file.
 
@@ -107,6 +108,7 @@ You should see this:
 A new detail page can be added with the following steps:
 
 - Create a new folder under `cd pwa/src/pages/{folder-name}` 
+
 > **_NOTE_**
 > The breadcrumbs are automatically generated, but in most cases this leads to user unfriendly names. Fortunately we can change the names through the gatsby configuration file.
 
@@ -147,10 +149,11 @@ You will see the same result as above.
 
 Now it's time to add the detail page
 - Create a new folder under the folder we just created `cd pwa/src/pages/{folder-name}/[fileId]`
+
 > **_NOTE_**
 > The parentheses around the `fileId` makes gatsby see this as a variable
 >
- > **_NOTE_**
+> **_NOTE_**
 > The breadcrumbs are automatically generated, but in most cases this leads to user unfriendly names. Fortunately we can change the names through the gatsby configuration file.
 
 
@@ -163,8 +166,10 @@ Now it's time to add the detail page
     - @TODO explanation index file import/export
 
 Restart the development server and go to localhost:8000/petStore/{someId}
+
 > **_NOTE_**
 > {someId} can be anything @TODO more explanation slug detail page
+
 - control + C
 - npm i
 - npm start
