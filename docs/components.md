@@ -2,20 +2,31 @@
 
 This page consists of the following parts:
 
+- Using packages
 - Adding components
-  - Add a table
-  - Add a form
+  - Basic table
+  - Basic form
+  - Multistep form
+  - Form.io
 - API service
 
-## _Adding components_
+## _Using packages_
 
 Now that we added the pages we can add components to it.
 The components we are going to use are in the [conduction-components package](https://www.npmjs.com/package/@conduction/components) and the [gemeente-denhaag package](https://nl-design-system.github.io/denhaag/?path=/story/den-haag-introduction--page).
 these packages are already included in `package.json` and can be used
 
+@TODO more info view, use and add packages
+
+--- 
+
+## _Adding components_
+
 In this guide I will show you how you can add a table on the main page and a form on the detail page.
 After that we will tie it all together by posting the form and rendering the data in the table.
 
+
+### _Basic table_
 First add the table to `/src/templates/test/TestTemplate.tsx`.
 
 ```Javascript
@@ -58,6 +69,8 @@ You should see this:
 
 ![Table example](./images/table.png)
 
+
+### _Basic form_
 Then add the form `/src/templates/test/TestDetailTemplate.tsx`
 
 ```Javascript
@@ -123,125 +136,19 @@ You should see this:
 
 ![Form Example](./images/form.png)
 
+
+### _Multistep form_
+
+here documentation for adding a multistep form
+
+### _Form.io_
+
+here documentation for adding a form.io form
+
 ---
 
-## _API Service_
+## _Adding an API to the ApiService_
 
-To be able to send the form and to show the data in the table we need an api that can handle this.
-In [this](https://github.com/CommonGateway/PetStoreAPI#running-the-api-with-the-skeleton-app) guide you can add an exiting API to the skeleton-app.
-This guide also explains how to create an API with [Stoplight](https://stoplight.io/)
+Now that you've added the components we can tie it all together [click here to see the guide](./apiService.md).
 
-If we added the API we can create a `resource` in `/src/apiService/resources`
-- add a file called `example.tsx` with the following code
-  - we want to add a getAll and create function.
-
-```Typescript
-// /src/apiService/resource/example.ts
-import { Send } from "../apiService";
-import { AxiosInstance } from "axios";
-
-export default class Example {
-  private _instance: AxiosInstance;
-
-  constructor(_instance: AxiosInstance) {
-    this._instance = _instance;
-  }
-
-  public getAll = async (): Promise<any> => {
-    const {
-      data: { results },
-    } = await Send(this._instance, "GET", "/notifications");
-
-    return results;
-  };
-
-  public create = async (variables: { payload: any }): Promise<any> => {
-    const { payload } = variables;
-    const { data } = await Send(this._instance, "POST", "/notifications", payload);
-    return data;
-  };
-}
-```
-
-- then go to `/src/apiService/apiService.ts`
-  - here you need to add your resource
-
-```Typescript
-// /src/apiService/resource/example.ts
-// Resources
-import Example from "./resources/example";
-
-// Resources
-public get Example(): Example {
-  return new Example(this.apiClient);
-}
-```
-
-Now we want to create `hooks` for the error handling
-- add a new page to `/src/hooks` with the following code:
-```Typescript
-// /src/hooks/example.ts
-import * as React from "react";
-import { QueryClient, useMutation, useQuery } from "react-query";
-import APIService from "../apiService/apiService";
-import { navigate } from "gatsby-link";
-import { addItem } from "../services/mutateQueries";
-import APIContext from "../apiService/apiContext";
-
-export const useExample = (queryClient: QueryClient) => {
-  const API: APIService = React.useContext(APIContext);
-
-  const getAll = () =>
-    useQuery<any[], Error>("examples", API.Example.getAll, {
-      onError: (error) => {
-        throw new Error(error.message);
-      }
-    });
-
-  const create = () =>
-    useMutation<any, Error, any>(API.Example.create, {
-      onSuccess: async (newNotification) => {
-        addItem(queryClient, "notifications", newNotification);
-        navigate("/testFolder");
-      },
-      onError: (error) => {
-        throw new Error(error.message);
-      }
-    });
-
-  return { getAll, create };
-};
-```
-
-Then we want to handle the form. 
-Go to `/src/templates/test/TestDetailTemplate` and add/edit the following things
-```Typescript
-// /src/templates/test/TestDetailTemplate.tsx
-const queryClient = useQueryClient();
-
-const _useExample = useExample(queryClient);
-const createExample = _useExample.create();
-
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-  setValue
-} = useForm();
-
-React.useEffect(() => {
-  example && handleSetFormValues(example);
-}, [example]);
-
-const handleSetFormValues = (formValues: ITestDetail): void => {
-  setValue("title", formValues.title);
-  setValue("description", formValues.description);
-};
-
-const onSubmit = (data: any) => {
-  createExample.mutate({ payload: data });
-};
-```
-
-// form created -> show result 
-// add queryclient to the table -> show the result
+---
