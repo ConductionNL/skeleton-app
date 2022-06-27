@@ -27,7 +27,7 @@ With both installed, first:
 
 Clone your new repository to your local machine to start developing. Open the terminal, and navigate to the folder containing your repository.## Developing on the Skeleton Application
 
-This is an in-depth guide [here](./doc/developing_skeleton.md).
+Click [here](./docs/index.md) for the introduction of the skeleton-app
 
 ## Technical Documentation
 
