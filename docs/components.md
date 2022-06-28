@@ -1,4 +1,4 @@
-# Development of the Skeleton Application
+# Components
 
 This page consists of the following parts:
 
@@ -10,28 +10,40 @@ This page consists of the following parts:
   - Form.io
 - API service
 
+---
+
 ## _Using packages_
 
-Now that we added the pages we can add components to it.
-The components we are going to use are in the [conduction-components package](https://www.npmjs.com/package/@conduction/components) and the [gemeente-denhaag package](https://nl-design-system.github.io/denhaag/?path=/story/den-haag-introduction--page).
-these packages are already included in `package.json` and can be used
+---
+The Skeleton app is designed to be modular to save on development time. One of the aspects of this is the compatibility to use components developed from different players in various ecosysems. One of the players in the NL Design System is the municpality of The Hague. These components work especially well with the PIP-template.
 
-@TODO more info view, use and add packages
+Now that we added the pages, let's add some components.
 
---- 
+The components we're using are in the [conduction-components package](https://www.npmjs.com/package/@conduction/components) and the [gemeente-denhaag package](https://nl-design-system.github.io/denhaag/?path=/story/den-haag-introduction--page).
+these packages are already included in `package.json` and can be used right away.
+
+@TODO more info view, use, and add packages
+
+---
 
 ## _Adding components_
 
-In this guide I will show you how you can add a table on the main page and a form on the detail page.
-After that we will tie it all together by posting the form and rendering the data in the table.
+---
 
+This guide shows you how to add common page elements like tables and forms to your pages. After that, we will tie it all together
+by submitting the form and rendering the data in a table. We assume imports are known to the user as well as React hooks and TypeScript interfaces. If any of the examples below are unclear, please revisit the requirements on the home page of the documentation or the [glossary](glossary.md).
+
+---
 
 ### _Basic table_
-First add the table to `/src/templates/test/TestTemplate.tsx`.
+
+---
+
+First add the table to `/src/templates/test/[your-example-name].tsx`.
 
 ```Javascript
 
-//  /src/templates/test/TestTemplate.tsx
+//  /src/templates/test/[your-example-name].tsx
 import * as React from "react";
 import { Button, Heading3 } from "@gemeente-denhaag/components-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@gemeente-denhaag/table";
@@ -66,13 +78,17 @@ export const HomeTemplate: React.FC = () => {
 
 ```
 
-Now go to localhost:800 en click on the sideNav item 'Test page'.
+Navigate to `localhost:8000` en click on the sideNav item '[your-example-name] page'.
 You should see this:
 
 ![Table example](./images/table.png)
 
+---
 
 ### _Basic form_
+
+---
+
 Then add the form `/src/templates/test/TestDetailTemplate.tsx`
 
 ```Javascript
@@ -126,7 +142,7 @@ export const TestDetailTemplate: React.FC<TestDetailProps> = ({ example }) => {
 ```
 
 Now we can link the table to the form
-Edit the button in the table to: 
+Edit the button in the table to:
 
 ```Javascript
 //  /src/templates/test/TestTemplate.tsx
@@ -138,22 +154,21 @@ You should see this:
 
 ![Form Example](./images/form.png)
 
+---
 
-### _Multistep form_
+## _Multistep forms_
 
-here documentation for adding a multistep form
+---
 
-### _Form.io_
+Forms are a important aspect of web development. How else can we catch user input and make it so much easier for users to submit their information without the need to leave the confort of their homes? That's why we will demonstrate how to implement a form. The tool we use to add (multistep) forms is called [Form.io](https://form.io). This handy tool will save a lot of time on developing (good) forms.
 
-#### What is [form.io](https://form.io)?
+All forms rendered within the Form.io platform are done through the use of a JSON Schema. This schema is used to tell the renderer how to render the form, but also provides a way for the API to automatically be generated to support the form. This documentation provides detailed specification over the structure of the Form JSON Schema, in addition to a component that can be rendered with a Form.
 
-Simply said: form.io a tool to generate forms in front-ends. U can create a json definition in the form.io standard, use that in a front-end which uses form.io, and it will read that json definition and render a form it.
+If you reached this part of the documentation, you should have at least one page made so far. If not, you can always go back and [read this](https://conductionnl.github.io/skeleton-app/pages/) again.
 
-#### How to render a form with form.io?
+Below is an example with the minimum requirements for a form made with form.io. Writing the JSON schema for your form all by yourself is quite extensive, so it's recommended to use a generator for it. We save hours by using [this useful tool](https://kaleguy.github.io/formiojs-client/#/t/36/). Build a form by dragging the elements and a Form JSON is generated below. Copy this JSON entirely and replace the `Paste here the JSON schema` comment.
 
-First we need to create a page. If you reached this part of the documentation you should have one, if not [read this](https://conductionnl.github.io/skeleton-app/pages/).
-
-Then paste this code into to that page.tsx:
+Rebuild the server just to be sure and view your own form in the browser on `localhost:8000`
 
 ``` Javascript
 
@@ -163,171 +178,9 @@ const FormIOPage: React.FC = () => {
   const [formIO, setFormIO] = React.useState<any>(null);
 
   const formIOSchema = {
-    display: "form",
-    components: [
-      {
-        label: "Text Field",
-        labelPosition: "top",
-        placeholder: "",
-        description: "",
-        tooltip: "",
-        prefix: "",
-        suffix: "",
-        widget: {
-          type: "input",
-        },
-        inputMask: "",
-        displayMask: "",
-        allowMultipleMasks: false,
-        customClass: "",
-        tabindex: "",
-        autocomplete: "",
-        hidden: false,
-        hideLabel: false,
-        showWordCount: false,
-        showCharCount: false,
-        mask: false,
-        autofocus: false,
-        spellcheck: true,
-        disabled: false,
-        tableView: true,
-        modalEdit: false,
-        multiple: false,
-        persistent: true,
-        inputFormat: "plain",
-        protected: false,
-        dbIndex: false,
-        case: "",
-        truncateMultipleSpaces: false,
-        encrypted: false,
-        redrawOn: "",
-        clearOnHide: true,
-        customDefaultValue: "",
-        calculateValue: "",
-        calculateServer: false,
-        allowCalculateOverride: false,
-        validateOn: "change",
-        validate: {
-          required: false,
-          pattern: "",
-          customMessage: "",
-          custom: "",
-          customPrivate: false,
-          json: "",
-          minLength: "",
-          maxLength: "",
-          strictDateValidation: false,
-          multiple: false,
-          unique: false,
-        },
-        unique: false,
-        errorLabel: "",
-        errors: "",
-        key: "textField",
-        tags: [],
-        properties: {},
-        conditional: {
-          show: null,
-          when: null,
-          eq: "",
-          json: "",
-        },
-        customConditional: "",
-        logic: [],
-        attributes: {},
-        overlay: {
-          style: "",
-          page: "",
-          left: "",
-          top: "",
-          width: "",
-          height: "",
-        },
-        type: "textfield",
-        input: true,
-        refreshOn: "",
-        dataGridLabel: false,
-        addons: [],
-        inputType: "text",
-        id: "efjuwsq",
-        defaultValue: null,
-      },
-      {
-        type: "button",
-        label: "Submit",
-        key: "submit",
-        size: "md",
-        block: false,
-        action: "submit",
-        disableOnInvalid: true,
-        theme: "primary",
-        input: true,
-        placeholder: "",
-        prefix: "",
-        customClass: "",
-        suffix: "",
-        multiple: false,
-        defaultValue: null,
-        protected: false,
-        unique: false,
-        persistent: false,
-        hidden: false,
-        clearOnHide: true,
-        refreshOn: "",
-        redrawOn: "",
-        tableView: false,
-        modalEdit: false,
-        dataGridLabel: true,
-        labelPosition: "top",
-        description: "",
-        errorLabel: "",
-        tooltip: "",
-        hideLabel: false,
-        tabindex: "",
-        disabled: false,
-        autofocus: false,
-        dbIndex: false,
-        customDefaultValue: "",
-        calculateValue: "",
-        calculateServer: false,
-        widget: {
-          type: "input",
-        },
-        attributes: {},
-        validateOn: "change",
-        validate: {
-          required: false,
-          custom: "",
-          customPrivate: false,
-          strictDateValidation: false,
-          multiple: false,
-          unique: false,
-        },
-        conditional: {
-          show: null,
-          when: null,
-          eq: "",
-        },
-        overlay: {
-          style: "",
-          left: "",
-          top: "",
-          width: "",
-          height: "",
-        },
-        allowCalculateOverride: false,
-        encrypted: false,
-        showCharCount: false,
-        showWordCount: false,
-        properties: {},
-        allowMultipleMasks: false,
-        addons: [],
-        leftIcon: "",
-        rightIcon: "",
-        id: "eybqz9k",
-      },
-    ],
-    settings: {},
+   
+    // Paste here the JSON schema
+
   };
 
   React.useEffect(() => {
@@ -335,7 +188,7 @@ const FormIOPage: React.FC = () => {
 
     import("@formio/react").then((formio) => {
       const { Form } = formio;
-      setFormIO(<Form src={formIOSchema} onSubmit={console.log} />);
+      setFormIO(<Form src={formIOSchema} onSubmit={console.log} />); // replace the codeblock here send send the form input elsewhere
     });
   }, [formIO]);
 
@@ -347,22 +200,13 @@ export default FormIOPage;
 
 ```
 
-- Then you can create your own form with [this usefull tool](https://kaleguy.github.io/formiojs-client/#/t/36/).
-- Copy the Form JSON below the editor.
-- Overwrite the `const formIOSchema` with your copied JSON definiton of a formio form.
-- View your page in a browser.
-- Fill in your form and press submit.
-- View your browser console `crtl + shift + i` and you can view the form with its values. 
-
-You can create your own function to handle the form.
-- Create a function.
-- Overwrite the `onSubmit={console.log}` with `onSubmit={yourFunction()}`.
-
+Once you have filled your form with data, submit it and verify the inputs in the browser console. To handle the input differently,
+alter the `onSubmit` codeblock in the  `useEffect` hook.
 
 ---
 
 ## _Adding an API to the ApiService_
 
-Now that you've added the components we can tie it all together [click here to see the guide](./apiService.md).
+Now that you've added the components, tie it all together in the next guide [click here to see the guide](./apiService.md).
 
 ---
