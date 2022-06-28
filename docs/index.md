@@ -38,7 +38,7 @@ You can find the repository for this application [here](https://github.com/Condu
 
 You can do this by clicking the green button, downloading the `ZIP` format, and unzipping in your preferred folder or use the following set of commands:
 
-In your terminal, in the correct directory:
+In your command line interface, in the correct directory:
 
 ``` cli
 git clone https://github.com/ConductionNL/skeleton-app.git
