@@ -27,10 +27,19 @@ And know how to use these tools:
 
 ## Introduction
 
-The skeleton application is designed for rapid application testing and prototype development on the [NL Design System](http://storybook.nldesignsystem.nl/?path=/story/nl-design-system-introductie--page). It provides a basic skeleton application with full NL Design system functionality that any developer can easily extend, view locally, and deploy to an online environment for demonstration purposes. The main benefits are:
+The skeleton application is designed for rapid application testing and prototype development on the [NL Design System](http://storybook.nldesignsystem.nl/?path=/story/nl-design-system-introductie--page). There are several templates you can use as a running start - - each with their own functionality and purpose.
 
-Development and (online) demonstration of prototypes without needing a server.
-An out-of-the-box basic application that doesn't require configuration or setup and can be extended immediately.
+_PIP_:
+
+It provides a basic skeleton application with full [NL Design System](http://storybook.nldesignsystem.nl/?path=/story/nl-design-system-introductie--page) functionality that any developer can easily extend, view locally, and deploy to an online environment for demonstration purposes. It has [Common Gateway](https://github.com/CommonGateway) support, multiple navigations and much more.
+
+_Website_:
+
+A simple website skeleton, including header, footers, routing and more. Does not initiate authentication
+
+_Dashboard:
+
+Coming Soon_
 
 ## Getting started
 
@@ -49,11 +58,21 @@ That's all for an initial setup.
 
 ## Chosing a template
 
+Navigate to the root folder of the repository you just downloaded. Open your preferred terminal and execute:
+
+```CLI
+cd pwa
+npm install
+npm start
+```
+
+Navigate in your browser to `localhost:8000` and you are welcomed to the template choosing section. Check out the live implementations and select your templated based on desired functionality. Follow the installation instructions.
+
 ### Spinning up the Skeleton App
 
 The skeleton app is built with GatsbyJs. Knowledge of this framework is recommended but not required.
 
-For full functionality with logging in, you will need to spin up the back-end along with the front-end. It is unnecessary to continue with the templating section of the Skeleton App.
+For full functionality with logging in (PIP template, for instance), you will need to spin up the back-end along with the front-end. It is unnecessary to continue with the website templating section of the Skeleton App.
 
 Depending on the development, these steps require you to:
 
