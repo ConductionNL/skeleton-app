@@ -1,8 +1,8 @@
 # Front End
 
-The front end of the application is what it's all about. Users need a interface to work with. Developing these interfaces are often time consuming and that's what the Skeleton App is all about.
+The front end of the application is what it's all about. Users need an interface to work with. Developing these interfaces is often time-consuming, and that's what the Skeleton App is all about.
 
-The Skeleton App is developed with React and in particular the GatsbyJs framework. For the commands below, you need to have NodeJS installed ([see the requirements](index.md))
+The Skeleton App is developed with React, particularly the GatsbyJs framework. For the commands below, you need to have NodeJS installed ([see the requirements](index.md))
 
 Use the following command from the root folder to spin up the front-end:
 
