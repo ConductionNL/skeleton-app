@@ -51,7 +51,7 @@ That's all for an initial setup.
 
 The skeleton app is built with GatsbyJs. Knowledge of this framework is recommended but not required.
 
-For full functionality with logging in, you will need to spin up the back-end. It is unnecessary to continue with the templating section of the Skeleton App.
+For full functionality with logging in, you will need to spin up the back-end along with the front-end. It is unnecessary to continue with the templating section of the Skeleton App.
 
 Depending on the development, these steps require you to:
 
