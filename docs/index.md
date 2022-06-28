@@ -47,6 +47,8 @@ cd skeleton-app
 
 That's all for an initial setup.
 
+## Chosing a template
+
 ### Spinning up the Skeleton App
 
 The skeleton app is built with GatsbyJs. Knowledge of this framework is recommended but not required.
@@ -67,11 +69,7 @@ With the front end running on `localhost:8000`, you are now ready to develop the
 
 ### Accessing and editing this documentation
 
-You can access this documentation with [`mkdocs`](https://www.mkdocs.org/). For first-timers accessing this excellent documentation tool. Install it easily with:
-
-``` cli
-pip install mkdocs
-```
+You can access this documentation with [`mkdocs`](https://www.mkdocs.org/). For first-timers accessing this excellent documentation tool. This tool is installed by default.
 
 Head over to `localhost:8000` to see this document locally.
 
