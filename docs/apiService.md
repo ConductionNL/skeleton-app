@@ -9,14 +9,72 @@ This page consists of the following parts:
   
 ---
 
+
+## Adding a existing API
+
+If you want to use a API thats already online on your app, follow these steps:
+
+- First we add the base url of your API as a variable in the session.
+- Get the base url of your API. (example: 'https://cat-fact.herokuapp.com')
+- Open `pwa/static/env.js`.
+- Add a new variable like: `window.sessionStorage.setItem("CATFACTS_BASEURL", "https://cat-fact.herokuapp.com");`.
+
+
+- Now we are going to create a client.
+- Open `pwa/src/apiService/apiService.ts`.
+- Add a new client like:
+``` Javascript
+  public get CatClient(): AxiosInstance {
+    return axios.create({
+      baseURL: window.sessionStorage.getItem("CATFACTS_BASEURL") ?? ""
+    });
+  }
+```
+- Add headers when needed like: 
+``` Javascript
+  public get CatClient(): AxiosInstance {
+    return axios.create({
+      baseURL: window.sessionStorage.getItem("CATFACTS_BASEURL") ?? "",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + this.getJWT(),
+      },
+    });
+  }
+```
+
+- Now we are going to create a resource for the client.
+- Copy `pwa/src/apiService/resources/example.ts`.
+- Paste it and rename it like: `pwa/src/apiService/resources/catFacts.ts`.
+- Uncomment all code.
+- Rename the class name like `export default class CatFacts {`.
+- Change the endpoint to the proper endpoint (example: `} = await Send(this._instance, "GET", "/facts");`).
+
+- Now we are going to connect the created resource to the created client.
+- Open `pwa/src/apiService/apiService.ts`.
+- Add a new function like:
+``` Javascript
+   public get CatFacts(): Example {
+     return new CatFacts(this.CatClient);
+   }
+```
+
+- Now we are going to create a hook for the API resources.
+- Copy `pwa/src/hooks/example.ts`.
+- Paste it and rename it like: `pwa/src/hooks/catFacts.ts`.
+- Uncomment all code.
+- Rename the class name like `export default class useCatFacts {`.
+- Change the endpoint to the proper endpoint (example: `} = await Send(this._instance, "GET", "/facts");`)
+
+You are ready to go to use this API in your app. Read [fetching and saving data](#.).
+
 ## _Adding an API_
 
 To be able to send the form and to show the data in the table we need an api that can handle this.
 In [this](https://github.com/CommonGateway/PetStoreAPI#running-the-api-with-the-skeleton-app) guide you can add an exiting API to the skeleton-app.
 This guide also explains how to create an API with [Stoplight](https://stoplight.io/)
 
-### _Adding an exiting API_
-text 
 
 ### _Adding an API to the gateway_
 text
