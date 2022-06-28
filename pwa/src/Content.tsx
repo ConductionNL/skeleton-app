@@ -72,7 +72,7 @@ export const Content: React.FC<ContentProps> = () => {
             <Heading3>Website</Heading3>
 
             <span>
-              A simple website skeleton, including headers, footers, routing and more. Does not contain authentication.
+              A simple website skeleton, including headers, footers, routing and more. Does not initiate authentication.
             </span>
           </div>
 
@@ -259,7 +259,11 @@ const templateDetails: any = {
         label: "Live Website implementation",
         href: "https://opencatalogi.nl",
       },
-      content: <span>Documentation coming soon</span>,
+      content: (
+        <span>
+          A simple website skeleton, including headers, footers, routing and more. Does not initiate authentication.
+        </span>
+      ),
     },
     installation: {
       title: "Getting started",
@@ -275,7 +279,17 @@ const templateDetails: any = {
               rm -rf pwa/src/skeleton-implementations
             </>
           }
-          commandWindows={<>TODO</>}
+          commandWindows={
+            <>
+              cp pwa/src/skeleton-implementations/website/Content.tsx pwa/src/ ; <br />
+              cp pwa/src/skeleton-implementations/website/Content.module.css pwa/src/ ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/website/pages pwa/src/pages ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/website/templates pwa/src/templates ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/website/templates/templateParts
+              pwa/src/templates/templateParts ; <br />
+              rmdir pwa/src/skeleton-implementations
+            </>
+          }
         />
       ),
     },
