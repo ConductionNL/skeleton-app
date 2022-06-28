@@ -183,7 +183,7 @@ const InstallationSteps: React.FC<InstallationStepsProps> = ({ commandMacOS, com
               className={styles.installationTabs}
             >
               <Tab label="MacOS (using rsync)" value={0} />
-              <Tab label="Windows (using robocopy)" value={1} />
+              <Tab label="Powershell (using robocopy)" value={1} />
             </Tabs>
 
             <TabPanel className={styles.tabPanel} value="0">
@@ -245,7 +245,7 @@ const templateDetails: any = {
               Robocopy /S pwa/src/skeleton-implementations/pip/templates/templateParts pwa/src/templates/templateParts ;{" "}
               <br />
               rmdir pwa/src/skeleton-implementations ; <br />
-              del pwa/src/Content.module.css
+              del pwa/src/Content.module.css ;
             </>
           }
         />
@@ -293,7 +293,7 @@ const templateDetails: any = {
               Robocopy /S pwa/src/skeleton-implementations/website/templates pwa/src/templates ; <br />
               Robocopy /S pwa/src/skeleton-implementations/website/templates/templateParts
               pwa/src/templates/templateParts ; <br />
-              rmdir pwa/src/skeleton-implementations
+              rmdir pwa/src/skeleton-implementations ;
             </>
           }
         />
