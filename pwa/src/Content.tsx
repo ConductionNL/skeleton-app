@@ -72,7 +72,7 @@ export const Content: React.FC<ContentProps> = () => {
             <Heading3>Website</Heading3>
 
             <span>
-              A simple website skeleton, including headers, footers, routing and more. Does not contain authentication.
+              A simple website skeleton, including headers, footers, routing and more. Does not initiate authentication.
             </span>
           </div>
 
@@ -259,11 +259,45 @@ const templateDetails: any = {
         label: "Live Website implementation",
         href: "https://opencatalogi.nl",
       },
-      content: <span>Documentation coming soon</span>,
+      content: (
+        <span>
+          A simple website skeleton, including headers, footers, routing and more. Does not initiate authentication.
+        </span>
+      ),
     },
     installation: {
       title: "Getting started",
-      content: "Installation information coming soon",
+      content: (
+        <InstallationSteps
+          commandMacOS={
+            <>
+              rm -rf pwa/src/pages/callbacks && <br />
+              rm pwa/src/pages/login.tsx && <br />
+              rm pwa/src/pages/logout.tsx && <br />
+              cp pwa/src/skeleton-implementations/website/Content.tsx pwa/src/ && <br />
+              cp pwa/src/skeleton-implementations/website/Content.module.css pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/website/pages pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/website/templates pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/website/templates/templateParts pwa/src/templates/ && <br />
+              rm -rf pwa/src/skeleton-implementations
+            </>
+          }
+          commandWindows={
+            <>
+              rmdir pwa/src/pages/callbacks ; <br />
+              del pwa/src/pages/login.tsx ; <br />
+              del pwa/src/pages/logout.tsx ; <br />
+              cp pwa/src/skeleton-implementations/website/Content.tsx pwa/src/ ; <br />
+              cp pwa/src/skeleton-implementations/website/Content.module.css pwa/src/ ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/website/pages pwa/src/pages ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/website/templates pwa/src/templates ; <br />
+              Robocopy /S pwa/src/skeleton-implementations/website/templates/templateParts
+              pwa/src/templates/templateParts ; <br />
+              rmdir pwa/src/skeleton-implementations
+            </>
+          }
+        />
+      ),
     },
   },
 };
