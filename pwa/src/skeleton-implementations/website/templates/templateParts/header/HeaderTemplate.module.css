@@ -1,9 +1,10 @@
 .header {
-  background-color: var(--conduction-color-secondary);
+  margin-block-end: var(--nlportal-space-block-4xl);
+  background-color: var(--conduction-top-nav-background-color-primary);
 }
 
 .top {
-  background-color: var(--conduction-color-primary);
+  background-color: var(--conduction-top-nav-background-color-secondary);
 }
 
 .headingContainer {

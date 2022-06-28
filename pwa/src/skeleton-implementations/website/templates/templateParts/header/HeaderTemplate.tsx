@@ -2,10 +2,11 @@ import * as React from "react";
 import * as styles from "./HeaderTemplate.module.css";
 import { Heading1 } from "@gemeente-denhaag/components-react";
 import { Container, PrimaryTopNav, SecondaryTopNav } from "@conduction/components";
+import { navigate } from "gatsby";
 
 export const HeaderTemplate: React.FC = () => {
-  const primaryTopNavItems = [{ label: "Home", href: "/" }];
-  const secondaryTopNavItems = [{ label: "Common ground", href: "link" }];
+  const primaryTopNavItems = [{ label: "Home", handleClick: () => navigate("/") }];
+  const secondaryTopNavItems = [{ label: "Common ground", handleClick: () => window.open("https://commonground.nl/") }];
 
   return (
     <header className={styles.header}>
