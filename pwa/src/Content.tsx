@@ -263,7 +263,21 @@ const templateDetails: any = {
     },
     installation: {
       title: "Getting started",
-      content: "Installation information coming soon",
+      content: (
+        <InstallationSteps
+          commandMacOS={
+            <>
+              cp pwa/src/skeleton-implementations/website/Content.tsx pwa/src/ && <br />
+              cp pwa/src/skeleton-implementations/website/Content.module.css pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/website/pages pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/website/templates pwa/src/ && <br />
+              rsync -r pwa/src/skeleton-implementations/website/templates/templateParts pwa/src/templates/ && <br />
+              rm -rf pwa/src/skeleton-implementations
+            </>
+          }
+          commandWindows={<>TODO</>}
+        />
+      ),
     },
   },
 };
