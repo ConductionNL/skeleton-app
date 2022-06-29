@@ -18,3 +18,8 @@
 .content > :first-child {
   margin-block-end: var(--nlportal-space-block-2xl);
 }
+
+.icons {
+  height: 24px;
+  width: 24px;
+}

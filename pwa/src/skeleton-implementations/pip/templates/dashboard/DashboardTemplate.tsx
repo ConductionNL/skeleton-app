@@ -7,6 +7,7 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { Container, Breadcrumbs, PrivateRoute } from "@conduction/components";
 import { isLoggedIn } from "../../services/auth";
+import { OpengemeentenIconHuis } from "@opengemeenten/iconset-react";
 
 export const DashboardTemplate: React.FC = ({ children }) => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export const DashboardTemplate: React.FC = ({ children }) => {
   const translatedCrumbs = crumbs.map((crumb: any) => ({ ...crumb, crumbLabel: t(crumb.crumbLabel) }));
 
   return (
-    <PrivateRoute isLoggedIn={isLoggedIn()}>
+    <PrivateRoute authenticated={isLoggedIn()}>
       <Container>
         <div className={styles.container}>
           <div className={styles.menu}>
@@ -54,7 +55,14 @@ const Menu: React.FC = () => {
     location: { pathname },
   } = React.useContext(GatsbyContext);
 
-  const menuItems: MenuItem[] = [{ label: t("Home"), href: "/", current: pathname === "/", icon: <GridIcon /> }];
+  const menuItems: MenuItem[] = [
+    {
+      label: t("Home"),
+      href: "/",
+      current: pathname === "/",
+      icon: <OpengemeentenIconHuis className={styles.icons} />,
+    },
+  ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string): void => {
     e.preventDefault();
