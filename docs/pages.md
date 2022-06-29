@@ -148,7 +148,7 @@ Now it's time to add the detail page
 - Create a new folder under the folder we just created `cd pwa/src/pages/{folder-name}/[fileId]`
 
 > **_NOTE_**
-> The parentheses around the `fileId` makes gatsby see this as a variable
+> The parentheses around the `fileId` makes Gatsby view this as a variable
 >
 
 - Create a new page `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx`
