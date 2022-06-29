@@ -1,0 +1,11 @@
+site_name: Skeleton app
+site_url: https://conductionnl.github.io/skeleton-app
+docs_dir: docs
+nav:
+    - Introduction skeleton-app: index.md
+    - The layout: glossary.md
+    - Adding pages: pages.md
+    - Components: components.md
+    - ApiService: apiService.md
+theme:
+    name: readthedocs
