@@ -49,9 +49,9 @@ touch PetStore.tsx
 touch PetStore.module.css
 ```
 
-Now with the page and template done, let's add the template as an import to the page.
+Now with the overview page and template done, let's add the template as an import to the page.
 
-The code of the `petStore` page file looks like this:
+The code of the `petStore` page file looks like this after the imports and component elements:
 
 ```Javascript
 // pwa/src/pages/petStore.tsx
@@ -82,8 +82,8 @@ const menuItems: MenuItem[] = [
 ];
 ```
 
-Now navigate to `localhost:8000` then click on the `sideNav` item 'Test page'
-You should see this:
+Navigate to `localhost:8000` and click on the `sideNav` item 'Test page'
+to see the following example:
 
 ![Example](./images/test.png)
 
@@ -95,21 +95,20 @@ You should see this:
 
 **A detail page is meant for a part of a unique topic.**
 
-You can add a new detail page with the following steps:
+Adding a detail page is easily done with the following steps:
 
-- Create a new folder under `pwa/src/pages/{folder-name}`
+```bash
+cd pwa/src/pages
+mkdir {folder-name}
+mv pwa/src/pages/petStore.tsx {folder-name}
+touch [`index.ts`](glossary.md#ts-file)
 
-> **_NOTE_**
-> The breadcrumbs are automatically generated, which leads to user-unfriendly names in most cases. You can change the names in the `gatsby-config.js` file.
+```
 
-> **_NOTE_**
-> When creating a folder, Gatsby expects an `index.tsx`  or `index.ts` file to render the page
+For everything to work, some importing and exporting needs to be done. In this file we are going to import and export the overview page we created `cd pwa/src/pages/petStore.tsx`
 
-- Add the page you created at _Adding an overview page_ to the folder we just created `pwa/src/pages/petStore.tsx`
-- Create a new `pwa/src/pages/{folder-name}/index.ts` file to the folder. @TODO refer to explanation .ts file
-  - In this file we are going to import and export the overview page we created `cd pwa/src/pages/petStore.tsx`
-    - @TODO explanation index file import/export
-    - The code should look like this:
+- @TODO explanation index file import/export
+- The import/ export file code really is nothing more than:
 
 ```Typescript
 // pwa/src/pages/test/index.ts
@@ -118,25 +117,12 @@ import TestPage from "./test";
 export default TestPage;
 ```
 
-The added folders and files and their structure are now:
+Restart the development server and go to `localhost:8000/petStore`
 
-```bash
-# creating a folder
-mkdir pwa/src/pages/petStore
-
-# adding pwa/src/pages/petStore.tsx to the folder above
-cd pwa/src/pages/petStore/
-touch petStore.tsx
-
-# creating an index.ts file
-touch index.ts
-```
-
-Restart the development server(`control / command+ C`) and go to `localhost:8000/petStore`
-
-Reinstall the `package-json` with the following command and start the server again:
+Reinstall the `package-json` with the following command and start the server again with these commands in the terminal:
 
 ```cli
+$ ctrl + C
 npm install
 npm start
 ```
@@ -145,34 +131,33 @@ You will see the same result as above.
 
 Now it's time to add the detail page
 
-- Create a new folder under the folder we just created `cd pwa/src/pages/{folder-name}/[fileId]`
+In the terminal:
 
-> **_NOTE_**
+```bash
+cd pwa/src/pages/{folder-name}/[fileId]
+touch {file-name}.tsx
+// In `index.ts` we are going to import and export the detail page we created `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx`
+touch index.ts
+mkdir pwa/src/templates/{folder-name}
+cd  pwa/src/templates/{folder-name}
+touch {file-name}.tsx
+// Import the template file `cd pwa/src/templates/{folder-name}/{file-name}.tsx` in the detail page `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx` we added
+
+```
+
+Restart the development server, like in the previous section and go to `localhost:8000/petStore/{someId}`
+
+> **_NOTES_**:
+>
 > The parentheses around the `fileId` makes Gatsby view this as a variable
 >
-
-- Create a new page `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx`
-- Create a new template folder `cd pwa/src/templates/{folder-name}`
-- Create a new template .tsx file `cd pwa/src/templates/{folder-name}/{file-name}.tsx`
-  - Import the template file `cd pwa/src/templates/{folder-name}/{file-name}.tsx` in the detail page `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx` we added
-- Create a new `cd pwa/src/pages/{folder-name}/[fileId]/index.ts` file to the folder. @TODO refer to explanation .ts file
-  - In this file we are going to import and export the detail page we created `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx`
-    - @TODO explanation index file import/export
-
-Restart the development server and go to localhost:8000/petStore/{someId}
-
-> **_NOTE_**
-> {someId} can be anything @TODO more explanation slug detail page
-
-- control + C
-- npm i
-- npm start
+>
+> `{someId}` can be anything
 
 ![Example](./images/testDetailPage.png)
 
-To change the breadcrumbs, we will go to the `cd pwa/src/gatsby-config.js` file
-Go to the gatsby-plugin-breadcrumb block in the file.
-Under options, you can add an array crumbLabelUpdates.
+To change the `breadcrumbs`, go to the `gatsby-config.js` file in `/pwa/`
+There's a `gatsby-plugin-breadcrumb` block in the file. Under the `options` key, add an array `crumbLabelUpdates`.
 You can add an object with `pathName` and `crumbLabel`.
 For the `pathName`, we can add the folder name as it is. `crumbLabel` will be the outcome.
 
@@ -200,6 +185,7 @@ Restart the development server. The breadcrumbs should look like this.
 
 ## Adding components to your page
 
+---
 Now that you've added the two pages, we can add components to those pages.
 [click here to see the guide](./components.md).
 
