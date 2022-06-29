@@ -1,8 +1,8 @@
 import * as React from "react";
 import { isLoggedIn } from "../services/auth";
 import { DashboardTemplate } from "../templates/dashboard/DashboardTemplate";
+import { HomeTemplate } from "../templates/templateParts/home/HomeTemplate";
 import { LandingTemplate } from "../templates/landing/LandingTemplate";
-import { OverviewTemplate } from "../templates/templateParts/overview/OverviewTemplate";
 
 const IndexPage: React.FC = () => {
   if (isLoggedIn()) return <AuthenticatedIndex />;
@@ -14,7 +14,7 @@ export default IndexPage;
 
 const AuthenticatedIndex: React.FC = () => (
   <DashboardTemplate>
-    <OverviewTemplate />
+    <HomeTemplate />
   </DashboardTemplate>
 );
 

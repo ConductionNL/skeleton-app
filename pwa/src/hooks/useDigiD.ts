@@ -22,7 +22,9 @@ export const useDigiD = () => {
     if (!isBrowser()) return;
 
     // @ts-ignore
-    return `${window.GATSBY_BASE_URL}/digid/login?returnUrl=${window.GATSBY_FRONTEND_URL}/callbacks/digid`;
+    return `${window.sessionStorage.getItem("GATSBY_BASE_URL")}/digid/login?returnUrl=${window.sessionStorage.getItem(
+      "GATSBY_FRONTEND_URL",
+    )}/callbacks/digid`;
   };
 
   return { authenticate, getRedirectURL };
