@@ -1,156 +1,19 @@
 import * as React from "react";
 import * as styles from "./Content.module.css";
-import { Container } from "@conduction/components";
-import { ArrowRightIcon } from "@gemeente-denhaag/icons";
-import {
-  Divider,
-  Heading1,
-  Heading2,
-  Heading3,
-  Link,
-  Tab,
-  TabContext,
-  TabPanel,
-  Tabs,
-} from "@gemeente-denhaag/components-react";
-import clsx from "clsx";
+import { FooterTemplate } from "./templates/templateParts/footer/FooterTemplate";
+import { HeaderTemplate } from "./templates/templateParts/header/HeaderTemplate";
 
 interface ContentProps {
   children: React.ReactNode;
 }
 
-export const Content: React.FC<ContentProps> = () => {
-  const [selectedTemplate, setSelectedTemplate] = React.useState<"pip" | "website" | "dashboard">("pip");
-  const [currentTab, setCurrentTab] = React.useState<number>(0);
-  const [content, setContent] = React.useState<any>(templateDetails["pip"]);
-
-  React.useEffect(() => {
-    setContent(templateDetails[selectedTemplate]);
-  }, [selectedTemplate]);
-
+export const Content: React.FC<ContentProps> = ({ children }) => {
   return (
-    <Container>
-      <div className={styles.content}>
-        <div className={styles.textContainer}>
-          <Heading1>Welcome to the Skeleton Application</Heading1>
-
-          <Link target="_blank" href="https://conduction.nl" icon={<ArrowRightIcon />} iconAlign="start">
-            Created by Conduction
-          </Link>
-        </div>
-
-        <Divider />
-
-        <div className={styles.textContainer}>
-          <Heading2>Step one: pick your template</Heading2>
-
-          <span>
-            The Skeleton Application comes with three out-of-the-box templates: PIP, Website and Dashboard. Each with
-            its own functionalities, such as: authentication, shielded pages and components, layouts as headers and
-            footers and much more. Every template has fully built-in NL-Design support.
-          </span>
-
-          <span>Select one of the templates below for more information.</span>
-        </div>
-
-        <div className={styles.templatesGrid}>
-          <div
-            className={clsx(styles.templateCard, selectedTemplate === "pip" && styles.active)}
-            onClick={() => setSelectedTemplate("pip")}
-          >
-            <Heading3>PIP</Heading3>
-
-            <span>
-              Out-of-the-box authentication, gateway support, NL Design support, multiple navigations and much more.
-            </span>
-          </div>
-
-          <div
-            className={clsx(styles.templateCard, selectedTemplate === "website" && styles.active)}
-            onClick={() => setSelectedTemplate("website")}
-          >
-            <Heading3>Website</Heading3>
-
-            <span>
-              A simple website skeleton, including headers, footers, routing and more. Does not initiate authentication.
-            </span>
-          </div>
-
-          <div
-            className={clsx(
-              styles.templateCard,
-              styles.templateCardDashboard,
-              selectedTemplate === "dashboard" && styles.active,
-            )}
-          >
-            <Heading3>Dashboard</Heading3>
-
-            <span>Coming soon.</span>
-          </div>
-        </div>
-
-        <TabContext value={currentTab.toString()}>
-          <Tabs
-            value={currentTab}
-            onChange={(_, newValue: number) => {
-              setCurrentTab(newValue);
-            }}
-          >
-            <Tab label="Introduction" value={0} />
-            <Tab label="Local installation guide" value={1} />
-          </Tabs>
-
-          <TabPanel className={styles.tabPanel} value="0">
-            <div className={styles.tabHeading}>
-              <Heading3>{content.introduction.title}</Heading3>
-
-              {content.introduction.linkToLive && (
-                <Link
-                  target="_blank"
-                  href={content.introduction.linkToLive.href}
-                  icon={<ArrowRightIcon />}
-                  iconAlign="start"
-                >
-                  {content.introduction.linkToLive.label}
-                </Link>
-              )}
-            </div>
-
-            <span>{content.introduction.content}</span>
-
-            <span>
-              For more information, you can{" "}
-              <Link
-                target="_blank"
-                href="https://github.com/ConductionNL/skeleton-app/tree/development"
-                icon={<ArrowRightIcon />}
-                iconAlign="start"
-              >
-                Check out the Skeleton Application documentation
-              </Link>
-            </span>
-          </TabPanel>
-
-          <TabPanel className={styles.tabPanel} value="1">
-            <Heading3>{content.installation.title}</Heading3>
-
-            <span>{content.installation.content}</span>
-
-            <span>
-              For more information, you can{" "}
-              <Link
-                target="_blank"
-                href="https://github.com/ConductionNL/skeleton-app/tree/development"
-                icon={<ArrowRightIcon />}
-                iconAlign="start"
-              >
-                Check out the Skeleton Application documentation
-              </Link>
-            </span>
-          </TabPanel>
-        </TabContext>
-      </div>
-    </Container>
+    <>
+      <HeaderTemplate />
+      <div className={styles.pageContent}>{children}</div>
+      <FooterTemplate />
+    </>
   );
 };
 

@@ -9,3 +9,5 @@
 
 /* Package includes */
 @import "react-loading-skeleton/dist/skeleton.css";
+
+@import "bootstrap/dist/css/bootstrap.css"; 
