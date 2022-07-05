@@ -33,7 +33,7 @@ The skeleton application is designed for rapid application testing and prototype
 
 _Website_:
 
-A simple website skeleton, including header, footers, routing and more. Does not initiate authentication. Choose this option without the need for a back end.
+A simple website skeleton, including header, footers, routing and more. Does not initiate authentication. Choose this option without the need for a back end. Of course, you can add it yourself later.
 
 _PIP_:
 

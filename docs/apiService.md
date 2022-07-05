@@ -13,7 +13,7 @@ This page consists of the following parts:
 
 ---
 
-If you want to use a API thats already avaliable to your application, you need to add the base URL of your API to the
+If you want to use an API thats already avaliable to your application, you need to add the base URL of your API to the
 `.env` file in `src/static`. This is done by adding a variable and value like this:  
 
 `window.sessionStorage.setItem("CATFACTS_BASEURL", "https://cat-fact.herokuapp.com");`.
@@ -51,12 +51,12 @@ To connect the created resource to the created client, create a new function in 
 
 ``` Javascript
   // /src/apiService/apiService.ts
-   public get CatFacts(): Example {
+   public get CatFacts(): Catfacts {
      return new CatFacts(this.CatClient);
    }
 ```
 
-A [`hook`](glossary.md#hooks) is needed for the API resources. Copy the
+The [`hook`](glossary.md#hooks) here is needed for caching the API resources(Cacheing the results is the only function of the hook, you could also just use the response of the call itself within the application; might be good when your API is very fast, or when you have to pay per request).
 
 You are ready to go to use this API in your app. Read [fetching and saving data](#.).
 
@@ -83,7 +83,7 @@ If we added the API we can create a `resource` in `cd pwa/src/apiService/resourc
 We will create a resource file with getAll and create functions
 
 ```bash
-touch pwa/src/resource/example.tsx` 
+touch pwa/src/resource/example.ts` 
 ```
 
 The example shown is the `Notifications` resource:
@@ -129,7 +129,7 @@ public get Example(): Example {
 }
 ```
 
-Now to create a `hook` for error handling. Add a new page to `/src/hooks` with the following code:
+Now to create a `hook` for the caching we talked about earlier. For the keen observer, there's some error handling as well. Add a new page to `/src/hooks` with the following code:
 
 ```Typescript
 // /src/hooks/example.ts

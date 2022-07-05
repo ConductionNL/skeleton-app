@@ -47,9 +47,9 @@ To start developing on the Skeleton App with a running start, it comes with vari
 
 #### _Authenticated templates_
 
-This is variation on the template. Signing in and keeping track of sessions is often cumbersome to implement. Not any more. With the PIP template (Dashboard as well), this is all done for you. You do need to spin up the [backend](backend.md) as well.
+This is variation on the template. Signing in and keeping track of sessions is often cumbersome to implement. Not any more. With the PIP template (Dashboard as well), this is all done for you in the authenticated templates. You do need to spin up the [backend](backend.md) as well.
 
-The authentication is done through `context`. Context is Gatsby is rendering components based on... context. This means whether or not a user is logged in, or for instance has switched on a theme.
+The authentication is done through `sessionStorage`.
 
 The mechanics of the authentication can be found in  `/pwa/src/services/auth.tsx`
 
@@ -64,7 +64,7 @@ If authentication is of no concern, like for instance, the only thing you need i
 
 React Hooks allow you to reuse stateful logic without changing your component hierarchy. This makes it easy to share Hooks among many components or with the community.
 
-Some hooks are native to React and can be imported and used in a file. Not all of these hooks cover every situation where you need them, that's why you can find more in `pwa/src/hooks`.
+Some hooks are native to React and can be imported and used in a file. Not all of these hooks cover every situation where you need them, that's why you can find more `custom hooks` in `pwa/src/hooks`.
 
 > ### _ApiService_
 
