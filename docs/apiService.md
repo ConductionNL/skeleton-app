@@ -4,25 +4,22 @@ This page consists of the following parts:
 
 - Adding an API
   - Adding an exiting API
-  - Adding an API to the gateway 
+  - Adding an API to the gateway
 - API service
   
 ---
 
-
 ## Adding a existing API
 
-If you want to use a API thats already online on your app, follow these steps:
+---
 
-- First we add the base url of your API as a variable in the session.
-- Get the base url of your API. (example: 'https://cat-fact.herokuapp.com')
-- Open `pwa/static/env.js`.
-- Add a new variable like: `window.sessionStorage.setItem("CATFACTS_BASEURL", "https://cat-fact.herokuapp.com");`.
+If you want to use an API thats already avaliable to your application, you need to add the base URL of your API to the
+`.env` file in `src/static`. This is done by adding a variable and value like this:  
 
+`window.sessionStorage.setItem("CATFACTS_BASEURL", "https://cat-fact.herokuapp.com");`.
 
-- Now we are going to create a client.
-- Open `pwa/src/apiService/apiService.ts`.
-- Add a new client like:
+To create a client, open `pwa/src/apiService/apiService.ts` and add a new client like the example below:
+
 ``` Javascript
   public get CatClient(): AxiosInstance {
     return axios.create({
@@ -30,7 +27,9 @@ If you want to use a API thats already online on your app, follow these steps:
     });
   }
 ```
-- Add headers when needed like: 
+
+- Add headers when needed:
+
 ``` Javascript
   public get CatClient(): AxiosInstance {
     return axios.create({
@@ -44,54 +43,51 @@ If you want to use a API thats already online on your app, follow these steps:
   }
 ```
 
-- Now we are going to create a resource for the client.
-- Copy `pwa/src/apiService/resources/example.ts`.
-- Paste it and rename it like: `pwa/src/apiService/resources/catFacts.ts`.
-- Uncomment all code.
-- Rename the class name like `export default class CatFacts {`.
-- Change the endpoint to the proper endpoint (example: `} = await Send(this._instance, "GET", "/facts");`).
+Let's create a resource for the client. First, we copy the contents of the `example.ts` from the `/apiService/resources/` folder. Create a file and paste the content you copied earlier and name the new file to somethin like `catFacts.ts`.
 
-- Now we are going to connect the created resource to the created client.
-- Open `pwa/src/apiService/apiService.ts`.
-- Add a new function like:
+Uncomment all code. Rename the class name as well. If you used the suggested `catFacts.ts` you will end up with `export default class CatFacts {`. The endpoint also needs to be changed to the proper endpoint (example: `} = await Send(this._instance, "GET", "/facts");`).
+
+To connect the created resource to the created client, create a new function in the `apiService.ts`
+
 ``` Javascript
-   public get CatFacts(): Example {
+  // /src/apiService/apiService.ts
+   public get CatFacts(): Catfacts {
      return new CatFacts(this.CatClient);
    }
 ```
 
-- Now we are going to create a hook for the API resources.
-- Copy `pwa/src/hooks/example.ts`.
-- Paste it and rename it like: `pwa/src/hooks/catFacts.ts`.
-- Uncomment all code.
-- Rename the class name like `export default class useCatFacts {`.
-- Change the endpoint to the proper endpoint (example: `} = await Send(this._instance, "GET", "/facts");`)
+The [`hook`](glossary.md#hooks) here is needed for caching the API resources(Cacheing the results is the only function of the hook, you could also just use the response of the call itself within the application; might be good when your API is very fast, or when you have to pay per request).
 
 You are ready to go to use this API in your app. Read [fetching and saving data](#.).
 
+---
+
 ## _Adding an API_
 
-To be able to send the form and to show the data in the table we need an api that can handle this.
+---
+To be able to send the form and to show the data in the table we need an API that can handle this.
 In [this](https://github.com/CommonGateway/PetStoreAPI#running-the-api-with-the-skeleton-app) guide you can add an exiting API to the skeleton-app.
 This guide also explains how to create an API with [Stoplight](https://stoplight.io/)
 
+### _Adding an API to the Common Gateway_
 
-### _Adding an API to the gateway_
-text
-
+If there's and OAS.yaml in the root of your repository the Common Gateway, the Gateway will automatically find this and can be found under `localhost:8000/endpoints`.
 
 ## _Adding an API to the ApiService_
 
-The Skeleton Application does API handling via the apiService in the application. The service is built on axios to fetch API data. Using this service saves many lines of code by calling upon methods in the component classes.
+The Skeleton Application does API handling via the apiService in the application. The service is built on [`axios`](https://axios-http.com/docs/intro) to fetch API data. Using this service saves many lines of code by calling upon methods in the component classes.
 
-You can find the ApiService at `cd pwa/src/apiService/apiService.ts` folder and structured with resources and services. Specific services such as logging are placed in services, and other calls are stored in resources.
+You can find the ApiService at `pwa/src/apiService/apiService.ts` folder and structured with resources and services. Specific services such as logging are placed in services, and other calls are stored in resources.
 
 If we added the API we can create a `resource` in `cd pwa/src/apiService/resources` or `service` in `cd pwa/src/apiService/services`
-We will create a resource file called
-- add a file called .tsx file `cd pwa/src/resource/example.tsx` with the following code
-  - we want to add a getAll and create function.
+We will create a resource file with getAll and create functions
 
-The example shown is the Notifications resource:
+```bash
+touch pwa/src/resource/example.ts` 
+```
+
+The example shown is the `Notifications` resource:
+
 ```Typescript
 // /src/apiService/resource/example.ts
 import { Send } from "../apiService";
@@ -120,8 +116,7 @@ export default class Example {
 }
 ```
 
-- then go to `/src/apiService/apiService.ts`
-  - here you need to add your resource
+Then in `apiService.ts` you need to add your resource
 
 ```Typescript
 // /src/apiService/resource/example.ts
@@ -134,8 +129,8 @@ public get Example(): Example {
 }
 ```
 
-Now we want to create `hooks` for the error handling
-- add a new page to `/src/hooks` with the following code:
+Now to create a `hook` for the caching we talked about earlier. For the keen observer, there's some error handling as well. Add a new page to `/src/hooks` with the following code:
+
 ```Typescript
 // /src/hooks/example.ts
 import * as React from "react";
@@ -170,8 +165,8 @@ export const useExample = (queryClient: QueryClient) => {
 };
 ```
 
-Then we want to handle the form.
-Go to `/src/templates/test/TestDetailTemplate` and add/edit the following things
+Then to handle the form, go to `/src/templates/test/TestDetailTemplate` and add/edit the following things
+
 ```Typescript
 // /src/templates/test/TestDetailTemplate.tsx
 const queryClient = useQueryClient();
@@ -205,7 +200,6 @@ const onSubmit = (data: any) => {
 
 ---
 
-
-## NEXT STEP...
+## NEXT STEP
 
 ---

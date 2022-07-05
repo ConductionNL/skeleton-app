@@ -27,21 +27,29 @@ And know how to use these tools:
 
 ## Introduction
 
+---
+
 The skeleton application is designed for rapid application testing and prototype development on the [NL Design System](http://storybook.nldesignsystem.nl/?path=/story/nl-design-system-introductie--page). There are several templates you can use as a running start - - each with their own functionality and purpose.
-
-_PIP_:
-
-It provides a basic skeleton application with full [NL Design System](http://storybook.nldesignsystem.nl/?path=/story/nl-design-system-introductie--page) functionality that any developer can easily extend, view locally, and deploy to an online environment for demonstration purposes. It has [Common Gateway](https://github.com/CommonGateway) support, multiple navigations and much more.
 
 _Website_:
 
-A simple website skeleton, including header, footers, routing and more. Does not initiate authentication
+A simple website skeleton, including header, footers, routing and more. Does not initiate authentication. Choose this option without the need for a back end. Of course, you can add it yourself later.
+
+_PIP_:
+
+It provides a basic skeleton application with full [NL Design System](http://storybook.nldesignsystem.nl/?path=/story/nl-design-system-introductie--page) functionality that any developer can easily extend, view locally, and deploy to an online environment for demonstration purposes. It has [Common Gateway](https://github.com/CommonGateway) support, multiple navigations and much more. Choose this option for built-in authentication.
 
 _Dashboard:
 
 Coming Soon_
 
+> **NOTE**:
+  Both the PIP template and the Dashboard need a [back end](backend.md)
+---
+
 ## Getting started
+
+---
 
 You can find the repository for this application [here](https://github.com/ConductionNL/skeleton-app). Cloning this repository to your machine is the next step.
 
@@ -54,10 +62,13 @@ git clone https://github.com/ConductionNL/skeleton-app.git
 cd skeleton-app
 ```
 
-That's all for an initial setup.
+That's all for an initial setup
+
+---
 
 ## Chosing a template
 
+---
 Navigate to the root folder of the repository you just downloaded. Open your preferred terminal and execute:
 
 ```CLI
@@ -68,7 +79,11 @@ npm start
 
 Navigate in your browser to `localhost:8000` and you are welcomed to the template choosing section. Check out the live implementations and select your templated based on desired functionality. Follow the installation instructions.
 
+---
+
 ### Spinning up the Skeleton App
+
+---
 
 The skeleton app is built with GatsbyJs. Knowledge of this framework is recommended but not required.
 
@@ -86,10 +101,14 @@ With the front end running on `localhost:8000`, you are now ready to develop the
 - ApiService (back-end needed)
 - Forms
 
+---
+
 ### Accessing and editing this documentation
+
+---
 
 You can access this documentation with [`mkdocs`](https://www.mkdocs.org/). For first-timers accessing this excellent documentation tool. This tool is installed by default.
 
 Head over to `localhost:8000` to see this document locally.
 
->__NOTE__ Mkdocs can't run on any other port by default. It's recommended first to run the documentation and then `Gatsby`. Gatsby also defaults to port `localhost:8000`, but asks to run at `localhost:8001` if 8000 is unavailable. Mkdocs errors in that scenario.
+>**NOTE**: Mkdocs can't run on any other port by default. It's recommended first to run the documentation and then `Gatsby`. Gatsby also defaults to port `localhost:8000`, but asks to run at `localhost:8001` if 8000 is unavailable. Mkdocs errors in that scenario.
