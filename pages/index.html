@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://conductionnl.github.io/skeleton-app/pages/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Adding pages - Skeleton app</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Adding pages";
+        var mkdocs_page_input_path = "pages.md";
+        var mkdocs_page_url = "/skeleton-app/pages/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Skeleton app
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction skeleton-app</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary/">The layout</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Adding pages</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#adding-an-overview-page">Adding an overview page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-a-detail-page">Adding a detail page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-components-to-your-page">Adding components to your page</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../apiService/">ApiService</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Skeleton app</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Adding pages</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="development-of-the-skeleton-application">Development of the Skeleton Application</h1>
+<p>This page consists of the following parts:</p>
+<ul>
+<li>Adding an overview page</li>
+<li>Adding a detail page</li>
+</ul>
+<p>These steps require you to:</p>
+<ul>
+<li>Spin up the <a href="../frontend/">front-end of the application</a>.</li>
+<li>Spin up the <a href="../backend/">backend</a></li>
+</ul>
+<hr />
+<h2 id="adding-an-overview-page"><em>Adding an overview page</em></h2>
+<hr />
+<p>An overview page is meant for each unique meaning of a term (or topic). Or they provide free navigation guides for a topic and include a headline, a short definition.</p>
+<p>You can add a new page with the following steps:</p>
+<ul>
+<li>
+<p>Create a new <a href="glossary.md/#tsx-file"><code>.tsx</code></a> file for your page at <code>pwa/src/pages/{folder-name}.tsx</code></p>
+</li>
+<li>
+<blockquote>
+<p><strong>-Optional:-</strong> Add a template to the page (this is not necessary but makes the code base clean and organized)</p>
+</blockquote>
+</li>
+<li>Create a new folder under <code>pwa/src/templates/{folder-name}</code></li>
+<li>Create a <code>.tsx</code> file <code>pwa/src/templates/{folder-name}/{File-name}.tsx</code></li>
+<li>Create a <a href="/glossary.md">.module.css</a> file <code>cd pwa/src/templates/{folder-name}/{File-name}.module.css</code> (if nadditional styling is needed on page level)</li>
+<li>When adding content to the page , select a template based on content.</li>
+<li>See this doc about <a href="..#chosing-a-template">the different template types</a></li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE</em></strong>
+The breadcrumbs are automatically generated, but this leads to user-unfriendly names in most cases. You can change the names in the <code>gatsby-config.js</code> file.</p>
+<p><strong><em>NOTE</em></strong>
+When creating a folder, Gatsby expects an <code>index.tsx</code>  or <code>index.ts</code> file to render the page</p>
+</blockquote>
+<p>As an example we will create a folder and file:</p>
+<pre><code class="language-bash"># create a folder
+mkdir pwa/src/templates/PetStore
+
+# creating a .tsx file in the Petstore folder
+cd pwa/src/templates/petStore/
+touch PetStore.tsx
+
+# creating an optional .module.css file
+touch PetStore.module.css
+</code></pre>
+<p>Now with the overview page and template done, let's add the template as an import to the page.</p>
+<p>The code of the <code>petStore</code> page file looks like this after the imports and component elements:</p>
+<pre><code class="language-Javascript">// pwa/src/pages/petStore.tsx
+import * as React from &quot;react&quot;;
+import { DashboardTemplate } from &quot;../templates/dashboard/DashboardTemplate&quot;; //imports
+import { TestTemplate } from &quot;../templates/testFolder/TestTemplate&quot;; // imports
+
+const TestPage: React.FC = () =&gt; {
+  return (
+    &lt;DashboardTemplate&gt; 
+      &lt;TestTemplate /&gt;
+    &lt;/DashboardTemplate&gt;
+  )
+}; // Rendering the components
+
+export default TestPage;
+</code></pre>
+<p>The follow-up is adding a <code>sideNav</code> item for the page to navigate to. You can add this in the <code>DashboardTemplate</code>. Inside the template is a variable called <code>menuItems</code>. Inside this variable, you can add a new item.</p>
+<p>Once added, your code should look similar to this example:</p>
+<pre><code class="language-Javascript">// pwa/src/templates/dashboard/DashboardTemplate.tsx
+const menuItems: MenuItem[] = [
+  { label: t(&quot;Home&quot;), href: &quot;/&quot;, current: pathname === &quot;/&quot;, icon: &lt;GridIcon /&gt; },
+  { label: t(&quot;Test page&quot;), href: &quot;/testFolder&quot;, current: pathname === &quot;/testFolder&quot;, icon: &lt;GridIcon /&gt; }
+];
+</code></pre>
+<p>Navigate to <code>localhost:8000</code> and click on the <code>sideNav</code> item 'Test page'
+to see the following example:</p>
+<p><img alt="Example" src="../images/test.png" /></p>
+<hr />
+<h2 id="adding-a-detail-page"><em>Adding a detail page</em></h2>
+<hr />
+<p><strong>A detail page is meant for a part of a unique topic.</strong></p>
+<p>Adding a detail page is easily done with the following steps:</p>
+<pre><code class="language-bash">cd pwa/src/pages
+mkdir {folder-name}
+mv pwa/src/pages/petStore.tsx {folder-name}
+touch [`index.ts`](glossary.md#ts-file)
+
+</code></pre>
+<p>For everything to work, some importing and exporting needs to be done. In this file we are going to import and export the overview page we created <code>cd pwa/src/pages/petStore.tsx</code></p>
+<ul>
+<li>@TODO explanation index file import/export</li>
+<li>The import/ export file code really is nothing more than:</li>
+</ul>
+<pre><code class="language-Typescript">// pwa/src/pages/test/index.ts
+import TestPage from &quot;./test&quot;;
+
+export default TestPage;
+</code></pre>
+<p>Restart the development server and go to <code>localhost:8000/petStore</code></p>
+<p>Reinstall the <code>package-json</code> with the following command and start the server again with these commands in the terminal:</p>
+<pre><code class="language-cli">$ ctrl + C
+npm install
+npm start
+</code></pre>
+<p>You will see the same result as above.</p>
+<p>Now it's time to add the detail page</p>
+<p>In the terminal:</p>
+<pre><code class="language-bash">cd pwa/src/pages/{folder-name}/[fileId]
+touch {file-name}.tsx
+// In `index.ts` we are going to import and export the detail page we created `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx`
+touch index.ts
+mkdir pwa/src/templates/{folder-name}
+cd  pwa/src/templates/{folder-name}
+touch {file-name}.tsx
+// Import the template file `cd pwa/src/templates/{folder-name}/{file-name}.tsx` in the detail page `cd pwa/src/pages/{folder-name}/[fileId]/{file-name}.tsx` we added
+
+</code></pre>
+<p>Restart the development server, like in the previous section and go to <code>localhost:8000/petStore/{someId}</code></p>
+<blockquote>
+<p><strong><em>NOTES</em></strong>:</p>
+<p>The parentheses around the <code>fileId</code> makes Gatsby view this as a variable</p>
+<p><code>{someId}</code> can be anything</p>
+</blockquote>
+<p><img alt="Example" src="../images/testDetailPage.png" /></p>
+<p>To change the <code>breadcrumbs</code>, go to the <code>gatsby-config.js</code> file in <code>/pwa/</code>
+There's a <code>gatsby-plugin-breadcrumb</code> block in the file. Under the <code>options</code> key, add an array <code>crumbLabelUpdates</code>.
+You can add an object with <code>pathName</code> and <code>crumbLabel</code>.
+For the <code>pathName</code>, we can add the folder name as it is. <code>crumbLabel</code> will be the outcome.</p>
+<p>Here we will edit the breadcrumbs of the two pages we just created.</p>
+<pre><code class="language-Typescript">// cd pwa/gatsby-config.js
+crumbLabelUpdates: [
+  {
+    pathname: &quot;/petStore&quot;,
+    crumbLabel: &quot;Pet store&quot;,
+  },
+  {
+    pathname: &quot;/petStore/[petStoreId]&quot;,
+    crumbLabel: &quot;Pet store detail page&quot;,
+  },
+]
+</code></pre>
+<p>Restart the development server. The breadcrumbs should look like this.</p>
+<p><img alt="Example" src="../images/breadcrumbs.png" /></p>
+<hr />
+<h2 id="adding-components-to-your-page">Adding components to your page</h2>
+<hr />
+<p>Now that you've added the two pages, we can add components to those pages.
+<a href="../components/">click here to see the guide</a>.</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../glossary/" class="btn btn-neutral float-left" title="The layout"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../components/" class="btn btn-neutral float-right" title="Components">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../glossary/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../components/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

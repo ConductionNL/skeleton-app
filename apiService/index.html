@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://conductionnl.github.io/skeleton-app/apiService/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>ApiService - Skeleton app</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ApiService";
+        var mkdocs_page_input_path = "apiService.md";
+        var mkdocs_page_url = "/skeleton-app/apiService/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Skeleton app
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction skeleton-app</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary/">The layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pages/">Adding pages</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">ApiService</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#adding-a-existing-api">Adding a existing API</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-an-api">Adding an API</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-an-api-to-the-common-gateway">Adding an API to the Common Gateway</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-an-api-to-the-apiservice">Adding an API to the ApiService</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-step">NEXT STEP</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Skeleton app</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>ApiService</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="development-of-the-skeleton-application">Development of the Skeleton Application</h1>
+<p>This page consists of the following parts:</p>
+<ul>
+<li>Adding an API</li>
+<li>Adding an exiting API</li>
+<li>Adding an API to the gateway</li>
+<li>API service</li>
+</ul>
+<hr />
+<h2 id="adding-a-existing-api">Adding a existing API</h2>
+<hr />
+<p>If you want to use an API thats already avaliable to your application, you need to add the base URL of your API to the
+<code>.env</code> file in <code>src/static</code>. This is done by adding a variable and value like this:  </p>
+<p><code>window.sessionStorage.setItem("CATFACTS_BASEURL", "https://cat-fact.herokuapp.com");</code>.</p>
+<p>To create a client, open <code>pwa/src/apiService/apiService.ts</code> and add a new client like the example below:</p>
+<pre><code class="language-Javascript">  public get CatClient(): AxiosInstance {
+    return axios.create({
+      baseURL: window.sessionStorage.getItem(&quot;CATFACTS_BASEURL&quot;) ?? &quot;&quot;
+    });
+  }
+</code></pre>
+<ul>
+<li>Add headers when needed:</li>
+</ul>
+<pre><code class="language-Javascript">  public get CatClient(): AxiosInstance {
+    return axios.create({
+      baseURL: window.sessionStorage.getItem(&quot;CATFACTS_BASEURL&quot;) ?? &quot;&quot;,
+      headers: {
+        Accept: &quot;application/json&quot;,
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        Authorization: &quot;Bearer &quot; + this.getJWT(),
+      },
+    });
+  }
+</code></pre>
+<p>Let's create a resource for the client. First, we copy the contents of the <code>example.ts</code> from the <code>/apiService/resources/</code> folder. Create a file and paste the content you copied earlier and name the new file to somethin like <code>catFacts.ts</code>.</p>
+<p>Uncomment all code. Rename the class name as well. If you used the suggested <code>catFacts.ts</code> you will end up with <code>export default class CatFacts {</code>. The endpoint also needs to be changed to the proper endpoint (example: <code>} = await Send(this._instance, "GET", "/facts");</code>).</p>
+<p>To connect the created resource to the created client, create a new function in the <code>apiService.ts</code></p>
+<pre><code class="language-Javascript">  // /src/apiService/apiService.ts
+   public get CatFacts(): Catfacts {
+     return new CatFacts(this.CatClient);
+   }
+</code></pre>
+<p>The <a href="../glossary/#hooks"><code>hook</code></a> here is needed for caching the API resources(Cacheing the results is the only function of the hook, you could also just use the response of the call itself within the application; might be good when your API is very fast, or when you have to pay per request).</p>
+<p>You are ready to go to use this API in your app. Read <a href="#.">fetching and saving data</a>.</p>
+<hr />
+<h2 id="adding-an-api"><em>Adding an API</em></h2>
+<hr />
+<p>To be able to send the form and to show the data in the table we need an API that can handle this.
+In <a href="https://github.com/CommonGateway/PetStoreAPI#running-the-api-with-the-skeleton-app">this</a> guide you can add an exiting API to the skeleton-app.
+This guide also explains how to create an API with <a href="https://stoplight.io/">Stoplight</a></p>
+<h3 id="adding-an-api-to-the-common-gateway"><em>Adding an API to the Common Gateway</em></h3>
+<p>If there's and OAS.yaml in the root of your repository the Common Gateway, the Gateway will automatically find this and can be found under <code>localhost:8000/endpoints</code>.</p>
+<h2 id="adding-an-api-to-the-apiservice"><em>Adding an API to the ApiService</em></h2>
+<p>The Skeleton Application does API handling via the apiService in the application. The service is built on <a href="https://axios-http.com/docs/intro"><code>axios</code></a> to fetch API data. Using this service saves many lines of code by calling upon methods in the component classes.</p>
+<p>You can find the ApiService at <code>pwa/src/apiService/apiService.ts</code> folder and structured with resources and services. Specific services such as logging are placed in services, and other calls are stored in resources.</p>
+<p>If we added the API we can create a <code>resource</code> in <code>cd pwa/src/apiService/resources</code> or <code>service</code> in <code>cd pwa/src/apiService/services</code>
+We will create a resource file with getAll and create functions</p>
+<pre><code class="language-bash">touch pwa/src/resource/example.ts` 
+</code></pre>
+<p>The example shown is the <code>Notifications</code> resource:</p>
+<pre><code class="language-Typescript">// /src/apiService/resource/example.ts
+import { Send } from &quot;../apiService&quot;;
+import { AxiosInstance } from &quot;axios&quot;;
+
+export default class Example {
+  private _instance: AxiosInstance;
+
+  constructor(_instance: AxiosInstance) {
+    this._instance = _instance;
+  }
+
+  public getAll = async (): Promise&lt;any&gt; =&gt; {
+    const {
+      data: { results },
+    } = await Send(this._instance, &quot;GET&quot;, &quot;/notifications&quot;);
+
+    return results;
+  };
+
+  public create = async (variables: { payload: any }): Promise&lt;any&gt; =&gt; {
+    const { payload } = variables;
+    const { data } = await Send(this._instance, &quot;POST&quot;, &quot;/notifications&quot;, payload);
+    return data;
+  };
+}
+</code></pre>
+<p>Then in <code>apiService.ts</code> you need to add your resource</p>
+<pre><code class="language-Typescript">// /src/apiService/resource/example.ts
+// Resources
+import Example from &quot;./resources/example&quot;;
+
+// Resources
+public get Example(): Example {
+  return new Example(this.apiClient);
+}
+</code></pre>
+<p>Now to create a <code>hook</code> for the caching we talked about earlier. For the keen observer, there's some error handling as well. Add a new page to <code>/src/hooks</code> with the following code:</p>
+<pre><code class="language-Typescript">// /src/hooks/example.ts
+import * as React from &quot;react&quot;;
+import { QueryClient, useMutation, useQuery } from &quot;react-query&quot;;
+import APIService from &quot;../apiService/apiService&quot;;
+import { navigate } from &quot;gatsby-link&quot;;
+import { addItem } from &quot;../services/mutateQueries&quot;;
+import APIContext from &quot;../apiService/apiContext&quot;;
+
+export const useExample = (queryClient: QueryClient) =&gt; {
+  const API: APIService = React.useContext(APIContext);
+
+  const getAll = () =&gt;
+    useQuery&lt;any[], Error&gt;(&quot;examples&quot;, API.Example.getAll, {
+      onError: (error) =&gt; {
+        throw new Error(error.message);
+      }
+    });
+
+  const create = () =&gt;
+    useMutation&lt;any, Error, any&gt;(API.Example.create, {
+      onSuccess: async (newNotification) =&gt; {
+        addItem(queryClient, &quot;notifications&quot;, newNotification);
+        navigate(&quot;/testFolder&quot;);
+      },
+      onError: (error) =&gt; {
+        throw new Error(error.message);
+      }
+    });
+
+  return { getAll, create };
+};
+</code></pre>
+<p>Then to handle the form, go to <code>/src/templates/test/TestDetailTemplate</code> and add/edit the following things</p>
+<pre><code class="language-Typescript">// /src/templates/test/TestDetailTemplate.tsx
+const queryClient = useQueryClient();
+
+const _useExample = useExample(queryClient);
+const createExample = _useExample.create();
+
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+  setValue
+} = useForm();
+
+React.useEffect(() =&gt; {
+  example &amp;&amp; handleSetFormValues(example);
+}, [example]);
+
+const handleSetFormValues = (formValues: ITestDetail): void =&gt; {
+  setValue(&quot;title&quot;, formValues.title);
+  setValue(&quot;description&quot;, formValues.description);
+};
+
+const onSubmit = (data: any) =&gt; {
+  createExample.mutate({ payload: data });
+};
+</code></pre>
+<p>// form created -&gt; show result
+// add queryclient to the table -&gt; show the result</p>
+<hr />
+<h2 id="next-step">NEXT STEP</h2>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../components/" class="btn btn-neutral float-left" title="Components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../components/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

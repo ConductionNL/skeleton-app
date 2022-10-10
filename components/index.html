@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://conductionnl.github.io/skeleton-app/components/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Components - Skeleton app</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Components";
+        var mkdocs_page_input_path = "components.md";
+        var mkdocs_page_url = "/skeleton-app/components/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Skeleton app
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction skeleton-app</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary/">The layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pages/">Adding pages</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Components</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#using-packages">Using packages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-components">Adding components</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-table">Basic table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-form">Basic form</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multistep-forms">Multistep forms</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-an-api-to-the-apiservice">Adding an API to the ApiService</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../apiService/">ApiService</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Skeleton app</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Components</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="components">Components</h1>
+<p>This page consists of the following parts:</p>
+<ul>
+<li>Using packages</li>
+<li>Adding components</li>
+<li>Basic table</li>
+<li>Basic form</li>
+<li>Multistep form</li>
+<li>Form.io</li>
+<li>API service</li>
+</ul>
+<hr />
+<h2 id="using-packages"><em>Using packages</em></h2>
+<hr />
+<p>The Skeleton app is designed to be modular to save on development time. One of the aspects of this is the compatibility to use components developed by different players in various ecosystems. One of the NL Design System players is the municipality of The Hague. These components work exceptionally well with the PIP template.</p>
+<p>Now, with added pages, let's add some components.</p>
+<p>The components we're using are in the <a href="https://www.npmjs.com/package/@conduction/components">conduction-components package</a> and the <a href="https://nl-design-system.github.io/denhaag/?path=/story/den-haag-introduction--page">gemeente-denhaag package</a>.
+these packages are already included in <code>package.json</code> and can be used right away.</p>
+<p>@TODO more info view, use, and add packages</p>
+<hr />
+<h2 id="adding-components"><em>Adding components</em></h2>
+<hr />
+<p>This guide shows you how to add common page elements like tables and forms to your pages. After that, all will be tied together
+by submitting the form and rendering the data in a table. Assuming imports are known to the readereadereader and React hooks and TypeScript interfaces. If any of the examples below are unclear, please revisit the requirements on the home page of the documentation or the <a href="../glossary/">glossary</a>.</p>
+<hr />
+<h3 id="basic-table"><em>Basic table</em></h3>
+<hr />
+<p>First, let's add the table to <code>/src/templates/test/testDetailPage.tsx</code>. Doing this is like any other component with React and TypeScript.</p>
+<pre><code class="language-Javascript">
+//  /src/templates/test/testDetailPage.tsx
+import * as React from &quot;react&quot;;
+import { Button, Heading3 } from &quot;@gemeente-denhaag/components-react&quot;;
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from &quot;@gemeente-denhaag/table&quot;;
+
+export const HomeTemplate: React.FC = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;div&gt; 
+        &lt;Heading3&gt;Meldingen&lt;/Heading3&gt; 
+        &lt;Table&gt;
+          &lt;TableHead&gt;
+            &lt;TableRow&gt;
+              &lt;TableHeader&gt;Titel&lt;/TableHeader&gt;
+              &lt;TableHeader&gt;Omschrijving&lt;/TableHeader&gt;
+              &lt;TableHeader&gt;Datum&lt;/TableHeader&gt;
+              &lt;TableHeader&gt;&lt;Button&gt;Melding doen&lt;/Button&gt;&lt;/TableHeader&gt;
+            &lt;/TableRow&gt;
+          &lt;/TableHead&gt;
+          &lt;TableBody&gt;
+            &lt;TableRow&gt;
+              &lt;TableCell&gt;Test melding&lt;/TableCell&gt;
+              &lt;TableCell&gt;Dit is een test melding&lt;/TableCell&gt;
+              &lt;TableCell&gt;01-01-2022&lt;/TableCell&gt;
+              &lt;TableCell/&gt;
+            &lt;/TableRow&gt;
+          &lt;/TableBody&gt;
+        &lt;/Table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+</code></pre>
+<p>Navigate to <code>localhost:8000</code> en click on the sideNav item '[your-example-name] page'.
+You should see this:</p>
+<p><img alt="Table example" src="../images/table.png" /></p>
+<hr />
+<h3 id="basic-form"><em>Basic form</em></h3>
+<hr />
+<p>Then add the form <code>/src/templates/test/TestDetailTemplate.tsx</code></p>
+<pre><code class="language-Javascript">// /src/templates/test/TestDetailTemplate.tsx
+import * as React from &quot;react&quot;;
+import { useForm } from &quot;react-hook-form&quot;;
+import { Button, FormField, FormFieldInput, FormFieldLabel } from &quot;@gemeente-denhaag/components-react&quot;;
+import { useTranslation } from &quot;react-i18next&quot;;
+import { InputText, Textarea } from &quot;@conduction/components&quot;;
+
+interface ITestDetail {
+  title: string;
+  description: string;
+}
+
+interface TestDetailProps {
+  example?: ITestDetail;
+}
+
+export const TestDetailTemplate: React.FC&lt;TestDetailProps&gt; = ({ example }) =&gt; {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue
+  } = useForm();
+
+  //the empty onSubmit is dependent on an API to function. This API is not yet implemented
+  const onSubmit = async () =&gt; {};
+
+  return (
+    &lt;form onSubmit={handleSubmit(onSubmit)}&gt;
+      &lt;FormField&gt;
+        &lt;FormFieldInput&gt;
+          &lt;FormFieldLabel&gt;Titel&lt;/FormFieldLabel&gt;
+          &lt;InputText {...{ register, errors }} validation={{ required: true }} name=&quot;title&quot; /&gt;
+        &lt;/FormFieldInput&gt;
+      &lt;/FormField&gt;
+      &lt;FormField&gt;
+        &lt;FormFieldInput&gt;
+          &lt;FormFieldLabel&gt;Omschrijving&lt;/FormFieldLabel&gt;
+          &lt;Textarea {...{ register, errors }} name=&quot;message&quot; validation={{ required: true }} /&gt;
+        &lt;/FormFieldInput&gt;
+      &lt;/FormField&gt;
+      &lt;Button size=&quot;large&quot; type=&quot;submit&quot;&gt;
+        Verzenden
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+};
+</code></pre>
+<p>Now, to link the table to the form
+Edit the button in the table to:</p>
+<pre><code class="language-Javascript">//  /src/templates/test/TestTemplate.tsx
+&lt;Button onClick={() =&gt; navigate(&quot;/testFolder/testDetail&quot;)}&gt;Melding doen&lt;/Button&gt;
+</code></pre>
+<p>Click on the button.
+The view should see this:</p>
+<p><img alt="Form Example" src="../images/form.png" /></p>
+<hr />
+<h2 id="multistep-forms"><em>Multistep forms</em></h2>
+<hr />
+<p>Forms are an important aspect of web development. How else can applications catch user input and make it much easier for users to submit their information without needing to leave the comfort of their homes? Below is a demonstration of how to implement a form. The tool used to add (multistep) forms is called <a href="https://form.io">Form.io</a>. This handy tool will save time on developing (good) forms.</p>
+<p>All forms rendered within the Form.io platform are done using a JSON Schema. This schema is used to tell the renderer how to render the form, but also provides a way for the API to automatically be generated to support the form. This documentation provides detailed specifications over the structure of the Form JSON Schema and a component that can be rendered with a Form.</p>
+<p>If you reached this part of the documentation, you should have at least one page made so far. If not, you can always go back and <a href="https://conductionnl.github.io/skeleton-app/pages/">read this</a> again.</p>
+<p>Below is an example of the minimum requirements for a form made with form.io. Writing the JSON schema for your form all by yourself is pretty extensive, so using a generator is recommended. We save hours by using <a href="https://kaleguy.github.io/formiojs-client/#/t/36/">this useful tool</a>. Build a form by dragging the elements; a Form JSON is generated below. Copy this JSON and replace the <code>Paste here the JSON schema</code> comment.</p>
+<p>Rebuild the server to be sure and view your form in the browser on <code>localhost:8000</code></p>
+<pre><code class="language-Javascript">
+import * as React from &quot;react&quot;;
+
+const FormIOPage: React.FC = () =&gt; {
+  const [formIO, setFormIO] = React.useState&lt;any&gt;(null);
+
+  const formIOSchema = {
+
+    // Paste here the JSON schema
+
+  };
+
+  React.useEffect(() =&gt; {
+    if (formIO) return;
+
+    import(&quot;@formio/react&quot;).then((formio) =&gt; {
+      const { Form } = formio;
+      setFormIO(&lt;Form src={formIOSchema} onSubmit={console.log} /&gt;); // replace the codeblock here send send the form input elsewhere
+    });
+  }, [formIO]);
+
+  return &lt;&gt;{formIO &amp;&amp; formIO}&lt;/&gt;;
+};
+
+export default FormIOPage;
+
+
+</code></pre>
+<p>Once you have filled your form with data, submit it and verify the inputs in the browser console. To handle the input differently,
+alter the <code>onSubmit</code> code block in the  <code>useEffect</code> hook.</p>
+<hr />
+<h2 id="adding-an-api-to-the-apiservice"><em>Adding an API to the ApiService</em></h2>
+<p>Now that you've added the components tie it together in the following guide <a href="../apiService/">click here to see the guide</a>.</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../pages/" class="btn btn-neutral float-left" title="Adding pages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../apiService/" class="btn btn-neutral float-right" title="ApiService">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../pages/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../apiService/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

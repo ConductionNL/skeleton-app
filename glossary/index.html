@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://conductionnl.github.io/skeleton-app/glossary/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>The layout - Skeleton app</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "The layout";
+        var mkdocs_page_input_path = "glossary.md";
+        var mkdocs_page_url = "/skeleton-app/glossary/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Skeleton app
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction skeleton-app</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">The layout</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pages">Pages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tsx-file">.tsx file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ts-file">.ts file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modulecss-file">.module.css file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#authenticated-templates">Authenticated templates</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#unauthenticated-template">Unauthenticated template</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hooks">Hooks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#apiservice">ApiService</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#resources">Resources</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#services">Services</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#apicontextts">apiContext.ts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#apiservicets">apiService.ts</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-pages-to-the-skeleton-app">Adding pages to the skeleton-app</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pages/">Adding pages</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../apiService/">ApiService</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Skeleton app</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>The layout</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="development-of-the-skeleton-application">Development of the Skeleton Application</h1>
+<p>This page consists of the following parts:</p>
+<ul>
+<li>Layout skeleton-app</li>
+<li><code>cd pwa/src</code><ul>
+<li>Pages</li>
+<li>.tsx file</li>
+<li>.ts file</li>
+<li>.module.css file</li>
+<li>Templates</li>
+<li>Authenticated template</li>
+<li>Unauthenticated template</li>
+<li>Hooks</li>
+<li>ApiService</li>
+<li>Resources</li>
+<li>Services</li>
+<li>apiContext.ts</li>
+<li>apiService.ts</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="glossary"><em>Glossary</em></h2>
+<hr />
+<p>This is the go-to for additional explaination in case something is unclear.</p>
+<blockquote>
+<h3 id="pages"><em>Pages</em></h3>
+</blockquote>
+<p>GatsbyJS is a static web app generator. This means it focusses on a set of pages and renders the components in these pages. This separation ensures blazing fast pages, and provides additional</p>
+<h3 id="tsx-file"><em>.tsx file</em></h3>
+<p>A <code>.tsx</code> file is the TypeScript equivalent of the <code>.jsx</code> files used by React. JSX is a syntax extention to JavaScript. Both file types produce React "elements". You can read more about JSX in the <a href="https://reactjs.org/docs/introducing-jsx.html">React</a> documentation</p>
+<h3 id="ts-file"><em>.ts file</em></h3>
+<p>This is a TypeScript file. TypeScript is a superset for JavaScript to make it a strongly typed programming language. Less error prone, tight intergration with editors and native type inference. That's the reason why the Skeleton App uses TypeScript. TypeScript is compiled to regular JavaScript by all browsers.</p>
+<h3 id="modulecss-file"><em>.module.css file</em></h3>
+<p>CSS modules is a fancy way to tackle the problem of global CSS (which tends to become one big unorganized mess) and to guarantee the (scoped) styling of a single component. The Skeleton app is built with components, so the design choice fell on CSS Modules.</p>
+<blockquote>
+<h3 id="templates"><em>Templates</em></h3>
+</blockquote>
+<p>To start developing on the Skeleton App with a running start, it comes with various templates right out-of-the-box. When starting up the Skeleton app, you are presented with a choice for your application.</p>
+<h4 id="authenticated-templates"><em>Authenticated templates</em></h4>
+<p>This is variation on the template. Signing in and keeping track of sessions is often cumbersome to implement. Not any more. With the PIP template (Dashboard as well), this is all done for you in the authenticated templates. You do need to spin up the <a href="../backend/">backend</a> as well.</p>
+<p>The authentication is done through <code>sessionStorage</code>.</p>
+<p>The mechanics of the authentication can be found in  <code>/pwa/src/services/auth.tsx</code></p>
+<ul>
+<li>tell about authenticated templates and the use of it</li>
+<li>add an example with context about what you have to, how you do it and why you have to do it</li>
+</ul>
+<h4 id="unauthenticated-template"><em>Unauthenticated template</em></h4>
+<p>If authentication is of no concern, like for instance, the only thing you need is a landing page, choose a unauthenticated template and develop further without the need of a backend or authentication.</p>
+<blockquote>
+<h3 id="hooks"><em>Hooks</em></h3>
+</blockquote>
+<p>React Hooks allow you to reuse stateful logic without changing your component hierarchy. This makes it easy to share Hooks among many components or with the community.</p>
+<p>Some hooks are native to React and can be imported and used in a file. Not all of these hooks cover every situation where you need them, that's why you can find more <code>custom hooks</code> in <code>pwa/src/hooks</code>.</p>
+<blockquote>
+<h3 id="apiservice"><em>ApiService</em></h3>
+</blockquote>
+<p>The <code>apiServices</code> are classes that include advanced functionality, for instance: fucntions that will take care of authentication and CRUD operations.</p>
+<h4 id="resources"><em>Resources</em></h4>
+<ul>
+<li>tell about ApiService resource and the use of it</li>
+</ul>
+<h4 id="services"><em>Services</em></h4>
+<ul>
+<li>tell about ApiService services and the use of it</li>
+</ul>
+<h4 id="apicontextts"><em>apiContext.ts</em></h4>
+<ul>
+<li>tell about ApiService apiContext.ts file and the use of it</li>
+</ul>
+<h4 id="apiservicets"><em>apiService.ts</em></h4>
+<ul>
+<li>tell about ApiService apiService.ts file and the use of it</li>
+</ul>
+<hr />
+<h2 id="adding-pages-to-the-skeleton-app">Adding pages to the skeleton-app</h2>
+<p>Now we've looked at the explanation about the structure and files of the skeleton app we can add new pages
+<a href="../pages/">click here to see the guide</a>.</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Introduction skeleton-app"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pages/" class="btn btn-neutral float-right" title="Adding pages">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../pages/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
