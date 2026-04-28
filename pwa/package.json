@@ -29,7 +29,7 @@
     "axios": "^0.25.0",
     "clsx": "^1.1.1",
     "dateformat": "^5.0.3",
-    "gatsby": "^4.11.1",
+    "gatsby": "^4.25.9",
     "gatsby-plugin-breadcrumb": "^12.3.1",
     "gatsby-plugin-layout": "^3.11.0",
     "i18next": "^21.6.16",
